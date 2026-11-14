@@ -25,7 +25,7 @@ The app updates title, description, canonical, social-preview, and structured-da
 
 ## Deploying the full app to Vercel
 
-The repository root is configured as one Vercel project: it builds `frontend` and routes `/api/*` to the Express function in `api/[...path].js`. Keep the Vercel project root set to the repository root. Add production backend values under the project's Environment Variables before relying on database-backed features:
+The repository root is configured as one Vercel project: it builds `frontend` and rewrites `/api/*`, including nested paths, to the shared Express function in `api/dispatch.js`. The rewrite passes the original API path to the function. Keep the Vercel project root set to the repository root. Add production backend values under the project's Environment Variables before relying on database-backed features:
 
 - `MONGODB_URI` and `JWT_SECRET`
 - `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, and `R2_BUCKET_NAME` for private video and note attachments
