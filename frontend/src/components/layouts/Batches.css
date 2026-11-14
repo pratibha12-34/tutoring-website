@@ -1,0 +1,236 @@
+.batch-management-page {
+    width: min(100% - 36px, 1120px);
+    margin: 30px auto;
+    color: #29293d;
+}
+
+.batch-management-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.batch-management-nav > a {
+    color: #684ce0;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.batch-management-nav > button,
+.batch-editor-actions button,
+.batch-management-page .catalog-card-actions button {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 8px 13px;
+    border: 0;
+    border-radius: 9px;
+    background: #684ce0;
+    color: #fff;
+    font: inherit;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.batch-management-nav > button:hover,
+.batch-editor-actions button:first-child:hover {
+    background: #5037c7;
+}
+
+.batch-management-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+    padding: 24px;
+    border-radius: 17px;
+    background: linear-gradient(110deg, #eeeaff, #fff4e9);
+}
+
+.batch-management-header-icon {
+    display: grid;
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    place-items: center;
+    border-radius: 15px;
+    background: #fff;
+    color: #684ce0;
+}
+
+.batch-management-header-icon svg {
+    font-size: 1.65rem;
+}
+
+.batch-management-header p {
+    margin: 0 0 5px;
+    color: #7153de;
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+}
+
+.batch-management-header h1 {
+    margin: 0;
+    color: #29293d;
+    font-size: 1.7rem;
+}
+
+.batch-management-header small {
+    display: block;
+    margin-top: 5px;
+    color: #737386;
+}
+
+.batch-editor {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 22px;
+    border: 1px solid #e8e5f1;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 10px 24px rgb(32 32 51 / 5%);
+}
+
+.batch-editor h2 {
+    margin: 0;
+    color: #29293d;
+    font-size: 1.15rem;
+}
+
+.batch-editor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.batch-editor-grid label {
+    display: grid;
+    gap: 6px;
+    color: #555468;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.batch-editor-grid input,
+.batch-editor-grid textarea {
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 11px;
+    border: 1px solid #e3e1ec;
+    border-radius: 9px;
+    background: #fff;
+    color: #29293d;
+    font: inherit;
+}
+
+.batch-editor-grid textarea {
+    min-height: 96px;
+    resize: vertical;
+}
+
+.batch-editor-grid input:focus-visible,
+.batch-editor-grid textarea:focus-visible {
+    outline: 3px solid rgb(104 76 224 / 25%);
+    outline-offset: 1px;
+}
+
+.batch-editor-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.batch-editor-actions button:last-child {
+    background: #f0edf8;
+    color: #5f5c70;
+}
+
+.batch-editor-actions button:last-child:hover {
+    background: #e7e2f4;
+}
+
+.batch-management-page .catalog-card-actions .batch-delete-button {
+    border-color: #f0c4bd;
+    background: #fff0ed;
+    color: #ab4f44;
+}
+
+.batch-management-page .catalog-card-actions .batch-delete-button:hover {
+    background: #ffe4df;
+}
+
+.batch-management-message {
+    margin: 0 0 14px;
+    font-size: 0.87rem;
+}
+
+.batch-management-error { color: #b33d39; }
+.batch-management-success { color: #278359; }
+
+[data-theme="dark"] .batch-management-page,
+[data-theme="dark"] .batch-management-header h1,
+[data-theme="dark"] .batch-editor h2 {
+    color: #eeedf5;
+}
+
+[data-theme="dark"] .batch-management-header {
+    background: linear-gradient(110deg, #302a46, #3c302e);
+}
+
+[data-theme="dark"] .batch-management-header small {
+    color: #b7b4c5;
+}
+
+[data-theme="dark"] .batch-editor {
+    border-color: #393646;
+    background: #24222f;
+}
+
+[data-theme="dark"] .batch-editor-grid label {
+    color: #d0cddd;
+}
+
+[data-theme="dark"] .batch-editor-grid input,
+.batch-editor-grid textarea {
+    border-color: #49465b;
+    background: #272532;
+    color: #eeedf5;
+}
+
+[data-theme="dark"] .batch-editor-actions button:last-child {
+    background: #343044;
+    color: #d0cddd;
+}
+
+[data-theme="dark"] .batch-management-page .catalog-card-actions .batch-delete-button {
+    border-color: #a8554a;
+    background: #3a2828;
+    color: #ffd1c9;
+}
+
+@media (max-width: 580px) {
+    .batch-management-page {
+        width: min(100% - 28px, 480px);
+        margin: 22px auto;
+    }
+
+    .batch-management-header {
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .batch-editor-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .batch-management-page .catalog-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}

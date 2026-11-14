@@ -1,0 +1,59 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1f2937;
+  background: #fdfcff;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #fdfcff;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  background: #171620;
+  color: #eeedf5;
+}
+
+[data-theme="dark"] body {
+  background: #171620;
+  color: #eeedf5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #e4dcff;
+  color: #33266f;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}

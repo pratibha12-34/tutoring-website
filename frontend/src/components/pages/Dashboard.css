@@ -1,0 +1,455 @@
+.admin-page,
+.student-page,
+.teacher-page {
+  min-height: 100vh;
+  padding: clamp(24px, 5vw, 56px) max(20px, calc((100vw - 1120px) / 2));
+  background:
+    radial-gradient(ellipse at 92% 4%, rgb(255 184 144 / 12%), transparent 27%),
+    #f7f8fc;
+  color: #29293d;
+}
+
+.admin-page > header,
+.student-page > header,
+.teacher-page > header {
+  display: flex;
+  min-height: 192px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+  padding: clamp(24px, 5vw, 38px);
+  overflow: hidden;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 88% 20%, rgb(255 255 255 / 14%) 0 11%, transparent 11.5%),
+    radial-gradient(circle at 96% 110%, rgb(255 255 255 / 10%) 0 24%, transparent 24.5%),
+    linear-gradient(115deg, #5140bc, #7866e8 70%, #8a75ec);
+  color: #fff;
+  box-shadow: 0 16px 38px rgb(81 64 188 / 16%);
+}
+
+.dashboard-welcome {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 13px;
+  color: #e7e1ff;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.dashboard-kicker svg {
+  font-size: 1rem;
+}
+
+.dashboard-welcome h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  letter-spacing: -0.05em;
+  line-height: 1.15;
+}
+
+.dashboard-welcome > p {
+  margin: 10px 0 0;
+  color: #e3deff;
+  font-size: 0.9rem;
+}
+
+.dashboard-header-icon {
+  display: grid;
+  flex: 0 0 auto;
+  width: 92px;
+  height: 92px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: 28px;
+  background: rgb(255 255 255 / 12%);
+  color: #fff;
+  box-shadow: 0 0 34px rgb(255 255 255 / 12%), inset 0 0 24px rgb(255 255 255 / 8%);
+  transform: rotate(7deg);
+}
+
+.dashboard-header-icon svg {
+  font-size: 3.4rem;
+}
+
+.section-icon {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 14px;
+}
+
+.section-icon.icon-green {
+  box-shadow: 0 0 20px rgb(57 155 112 / 18%);
+}
+
+.section-icon svg {
+  font-size: 1.35rem;
+}
+
+.icon-coral {
+  background: #fff0e9;
+  color: #e97860;
+}
+
+.icon-blue {
+  background: #e8f3ff;
+  color: #4a93dc;
+}
+
+.icon-yellow {
+  background: #fff4d9;
+  color: #e5a331;
+}
+
+.icon-green {
+  background: #e4f7ed;
+  color: #399b70;
+}
+
+.icon-purple {
+  background: #eeeaff;
+  color: #7153de;
+}
+
+.dashboard-card,
+.student-fee,
+.admin-page > main > section {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid #e9e8f0;
+  border-radius: 18px;
+  background: rgb(255 255 255 / 78%);
+  box-shadow: 0 10px 28px rgb(32 32 51 / 5%);
+  backdrop-filter: blur(16px);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.dashboard-card:hover,
+.student-fee:hover,
+.admin-page > main > section:hover {
+  transform: translateY(-2px);
+  border-color: rgb(112 85 223 / 22%);
+  box-shadow: 0 16px 36px rgb(32 32 51 / 8%), 0 0 24px rgb(112 85 223 / 8%);
+}
+
+.dashboard-card h2,
+.student-fee h2,
+.admin-page > main > section > h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+  color: #29293f;
+  font-size: 1.12rem;
+  letter-spacing: -0.025em;
+}
+
+.dashboard-card > div,
+.salary-table-wrap {
+  overflow-x: auto;
+}
+
+.dashboard-card table,
+.admin-page table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #555568;
+  font-size: 0.84rem;
+  text-align: left;
+}
+
+.dashboard-card thead,
+.admin-page thead {
+  background: #f7f6fc;
+  color: #64617d;
+}
+
+.dashboard-card th,
+.dashboard-card td,
+.admin-page th,
+.admin-page td {
+  min-width: 100px;
+  padding: 13px 12px;
+  border-bottom: 1px solid #efeff4;
+  vertical-align: middle;
+}
+
+.dashboard-card th,
+.admin-page th {
+  font-size: 0.73rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.dashboard-card th svg,
+.admin-page th svg {
+  margin-right: 5px;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+.dashboard-card tbody tr:last-child td,
+.admin-page tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.dashboard-card tbody tr:hover,
+.admin-page tbody tr:hover {
+  background: #fcfbff;
+}
+
+.file-upload {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid #f3ddd8;
+  border-radius: 9px;
+  background: #fff7f4;
+  color: #c76150;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.file-upload svg {
+  font-size: 1.15rem;
+}
+
+.file-upload input {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  position: absolute;
+}
+
+.file-upload:focus-within {
+  outline: 3px solid rgb(232 121 96 / 25%);
+}
+
+.subject-icon {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  place-items: center;
+  border-radius: 10px;
+  vertical-align: middle;
+}
+
+.subject-icon svg {
+  font-size: 1rem;
+}
+
+.icon-green.subject-icon {
+  background: #e4f7ed;
+  color: #399b70;
+}
+
+.dashboard-card form {
+  display: grid;
+  gap: 16px;
+}
+
+.dashboard-card form label {
+  display: grid;
+  gap: 9px;
+  color: #555468;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.dashboard-card form input {
+  min-height: 47px;
+  padding: 10px 13px;
+  border: 1px solid #e5e4ed;
+  border-radius: 10px;
+  color: #36364a;
+  font: inherit;
+}
+
+.dashboard-card form input:focus {
+  border-color: #9a87ec;
+  outline: 3px solid rgb(120 102 232 / 12%);
+}
+
+.dashboard-card form button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 10px;
+  background: #684ce0;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.dashboard-card form button:hover {
+  transform: translateY(-1px);
+  background: #5037c7;
+}
+
+[data-theme="dark"] .admin-page,
+[data-theme="dark"] .student-page,
+[data-theme="dark"] .teacher-page {
+  background:
+    radial-gradient(ellipse at 92% 4%, rgb(167 129 255 / 8%), transparent 27%),
+    #171620;
+  color: #eeedf5;
+}
+
+[data-theme="dark"] .dashboard-card,
+[data-theme="dark"] .student-fee,
+[data-theme="dark"] .admin-page > main > section {
+  border-color: #393646;
+  background: rgb(36 34 47 / 82%);
+  box-shadow: 0 10px 28px rgb(0 0 0 / 16%), 0 0 24px rgb(142 119 255 / 5%);
+  backdrop-filter: blur(16px);
+}
+
+[data-theme="dark"] .dashboard-card:hover,
+[data-theme="dark"] .student-fee:hover,
+[data-theme="dark"] .admin-page > main > section:hover {
+  border-color: rgb(154 135 236 / 35%);
+  box-shadow: 0 16px 36px rgb(0 0 0 / 23%), 0 0 28px rgb(142 119 255 / 10%);
+}
+
+[data-theme="dark"] .dashboard-card h2,
+[data-theme="dark"] .student-fee h2,
+[data-theme="dark"] .admin-page > main > section > h2 {
+  color: #eeedf5;
+}
+
+[data-theme="dark"] .dashboard-card table,
+[data-theme="dark"] .admin-page table {
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .dashboard-card thead,
+[data-theme="dark"] .admin-page thead {
+  background: #302d3d;
+  color: #d5cfff;
+}
+
+[data-theme="dark"] .dashboard-card th,
+[data-theme="dark"] .dashboard-card td,
+[data-theme="dark"] .admin-page th,
+[data-theme="dark"] .admin-page td {
+  border-color: #393646;
+}
+
+[data-theme="dark"] .dashboard-card tbody tr:hover,
+[data-theme="dark"] .admin-page tbody tr:hover {
+  background: #2e2b3a;
+}
+
+[data-theme="dark"] .dashboard-card form label,
+[data-theme="dark"] .student-fee p {
+  color: #c3bfd0;
+}
+
+[data-theme="dark"] .dashboard-card form input {
+  border-color: #49465a;
+  background: #1d1b27;
+  color: #eeedf5;
+}
+
+[data-theme="dark"] .file-upload {
+  border-color: #64433f;
+  background: #392b2c;
+  color: #ffad98;
+}
+
+[data-theme="dark"] .section-icon.icon-green {
+  box-shadow: 0 0 22px rgb(71 194 139 / 24%);
+}
+
+[data-theme="dark"] .auth-topbar .theme-toggle {
+  border-color: #49465b;
+  background: #272532;
+  color: #f1cf75;
+}
+
+@media (max-width: 680px) {
+  .admin-page,
+  .student-page,
+  .teacher-page {
+    padding: 20px 16px 36px;
+  }
+
+  .admin-page > header,
+  .student-page > header,
+  .teacher-page > header {
+    min-height: 170px;
+    margin-bottom: 20px;
+    border-radius: 18px;
+  }
+
+  .dashboard-header-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+  }
+
+  .admin-page > header .theme-toggle,
+  .student-page > header .theme-toggle,
+  .teacher-page > header .theme-toggle {
+    min-height: 38px;
+    padding: 0 9px;
+    font-size: 0;
+  }
+
+  .admin-page > header .theme-toggle svg,
+  .student-page > header .theme-toggle svg,
+  .teacher-page > header .theme-toggle svg {
+    font-size: 1.2rem;
+  }
+
+  .dashboard-header-icon svg {
+    font-size: 2.5rem;
+  }
+
+  .dashboard-card,
+  .student-fee,
+  .admin-page > main > section {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .admin-page > header,
+  .student-page > header,
+  .teacher-page > header {
+    align-items: flex-start;
+  }
+
+  .dashboard-header-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+  }
+
+  .dashboard-header-icon svg {
+    font-size: 1.9rem;
+  }
+}

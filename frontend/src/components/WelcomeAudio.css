@@ -1,0 +1,87 @@
+.welcome-audio-control {
+  position: fixed;
+  z-index: 30;
+  right: 20px;
+  bottom: 20px;
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+}
+
+.welcome-audio-control button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 15px;
+  border: 1px solid rgb(255 255 255 / 80%);
+  border-radius: 999px;
+  background: #684ce0;
+  color: #fff;
+  box-shadow: 0 8px 22px rgb(52 43 103 / 20%);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.welcome-audio-control button:hover {
+  transform: translateY(-2px);
+  background: #5037c7;
+}
+
+.welcome-audio-control button:focus-visible {
+  outline: 3px solid rgb(104 76 224 / 38%);
+  outline-offset: 3px;
+}
+
+.welcome-audio-control button svg {
+  font-size: 1.1rem;
+}
+
+.welcome-audio-control > span {
+  max-width: 250px;
+  padding: 6px 9px;
+  border-radius: 8px;
+  background: #fff;
+  color: #b33d39;
+  box-shadow: 0 4px 14px rgb(52 43 103 / 10%);
+  font-size: 0.72rem;
+}
+
+.welcome-audio-control .welcome-audio-disable {
+  min-height: 34px;
+  padding: 0 11px;
+  background: #fff;
+  color: #684ce0;
+  font-size: 0.72rem;
+}
+
+.welcome-audio-control .welcome-audio-disable:hover {
+  background: #f5f2ff;
+}
+
+[data-theme="dark"] .welcome-audio-control > span {
+  background: #24222f;
+  color: #ffaaa3;
+}
+
+[data-theme="dark"] .welcome-audio-control .welcome-audio-disable {
+  background: #24222f;
+  color: #c4b8ff;
+}
+
+@media (max-width: 520px) {
+  .welcome-audio-control {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .welcome-audio-control button {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.75rem;
+  }
+}

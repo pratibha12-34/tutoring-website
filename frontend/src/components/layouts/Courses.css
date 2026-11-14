@@ -1,0 +1,404 @@
+.course-management-page {
+    width: min(100% - 36px, 1120px);
+    margin: 30px auto;
+    color: #29293d;
+}
+
+.course-management-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.course-management-nav > a {
+    color: #684ce0;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.course-management-nav > button,
+.course-editor-actions button,
+.course-management-page .catalog-card-actions button {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 8px 13px;
+    border: 0;
+    border-radius: 9px;
+    background: #684ce0;
+    color: #fff;
+    font: inherit;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.course-management-page .catalog-card-actions .course-sign-in-link {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: #684ce0;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 750;
+    text-align: center;
+    text-decoration: none;
+}
+
+.course-management-page .catalog-card-actions .course-sign-in-link:hover {
+    background: #5037c7;
+}
+
+.course-management-page .catalog-card-actions .course-sign-in-link:focus-visible {
+    outline: 3px solid rgb(104 76 224 / 35%);
+    outline-offset: 2px;
+}
+
+.course-management-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+    padding: 24px;
+    border-radius: 17px;
+    background: linear-gradient(110deg, #eeeaff, #fff4e9);
+}
+
+.course-management-header-icon {
+    display: grid;
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    place-items: center;
+    border-radius: 15px;
+    background: #fff;
+    color: #684ce0;
+}
+
+.course-management-header-icon svg {
+    font-size: 1.65rem;
+}
+
+.course-management-header p {
+    margin: 0 0 5px;
+    color: #7153de;
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+}
+
+.course-management-header h1 {
+    margin: 0;
+    color: #29293d;
+    font-size: 1.7rem;
+}
+
+.course-management-header small {
+    display: block;
+    margin-top: 5px;
+    color: #737386;
+}
+
+.course-catalog-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.course-editor {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 22px;
+    border: 1px solid #e8e5f1;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 10px 24px rgb(32 32 51 / 5%);
+}
+
+.course-editor h2 {
+    margin: 0;
+    color: #29293d;
+    font-size: 1.15rem;
+}
+
+.course-editor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.course-editor-grid label {
+    display: grid;
+    gap: 6px;
+    color: #555468;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.course-editor-grid input,
+.course-editor-grid textarea {
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 11px;
+    border: 1px solid #e3e1ec;
+    border-radius: 9px;
+    background: #fff;
+    color: #29293d;
+    font: inherit;
+}
+
+.course-editor-grid textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.course-editor-grid input:focus-visible,
+.course-editor-grid textarea:focus-visible {
+    outline: 3px solid rgb(104 76 224 / 25%);
+    outline-offset: 1px;
+}
+
+.course-editor-description {
+    grid-column: 1 / -1;
+}
+
+.course-editor-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.course-editor-actions button:first-child:hover,
+.course-management-nav > button:hover {
+    background: #5037c7;
+}
+
+.course-editor-actions button:last-child {
+    background: #f0edf8;
+    color: #5f5c70;
+}
+
+.course-editor-actions button:last-child:hover {
+    background: #e7e2f4;
+}
+
+.course-management-page .catalog-card-actions .course-delete-button {
+    border-color: #f0c4bd;
+    background: #fff0ed;
+    color: #ab4f44;
+}
+
+.course-management-page .catalog-card-actions .course-delete-button:hover {
+    background: #ffe4df;
+}
+
+.course-management-message {
+    margin: 0 0 14px;
+    font-size: 0.87rem;
+}
+
+.catalog-card-fee {
+    margin: 0 0 14px;
+    color: #684ce0;
+    font-weight: 800;
+}
+
+.course-payment-panel {
+    display: grid;
+    justify-items: start;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 15px;
+    border: 1px solid #e8e5f1;
+    border-radius: 12px;
+    background: #faf9fd;
+}
+
+.course-payment-panel h3,
+.course-payment-panel p {
+    margin: 0;
+}
+
+.course-payment-panel h3 {
+    color: #29293d;
+    font-size: 1rem;
+}
+
+.course-payment-panel p {
+    color: #737386;
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.course-payment-qr {
+    padding: 8px;
+    border: 1px solid #e8e5f1;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.course-payment-qr img {
+    display: block;
+    width: 220px;
+    height: 220px;
+}
+
+.course-payment-upi-link,
+.course-payment-form button,
+.course-payment-status-refresh {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 11px;
+    border: 0;
+    border-radius: 8px;
+    background: #684ce0;
+    color: #fff;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 750;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.course-payment-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 10px;
+}
+
+.course-payment-form label {
+    display: grid;
+    min-width: min(100%, 260px);
+    gap: 5px;
+    color: #555468;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.course-payment-form input {
+    min-height: 38px;
+    padding: 8px 10px;
+    border: 1px solid #e3e1ec;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.course-payment-form p {
+    flex-basis: 100%;
+}
+
+.course-payment-form button:last-child {
+    background: #f0edf8;
+    color: #5f5c70;
+}
+
+.course-payment-form button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.course-payment-status-refresh {
+    margin-top: 10px;
+}
+
+.course-management-error { color: #b33d39; }
+.course-management-success { color: #278359; }
+
+[data-theme="dark"] .course-management-page,
+[data-theme="dark"] .course-management-header h1,
+[data-theme="dark"] .course-editor h2 {
+    color: #eeedf5;
+}
+
+[data-theme="dark"] .course-management-header {
+    background: linear-gradient(110deg, #302a46, #3c302e);
+}
+
+[data-theme="dark"] .course-management-header small {
+    color: #b7b4c5;
+}
+
+[data-theme="dark"] .course-editor {
+    border-color: #393646;
+    background: #24222f;
+}
+
+[data-theme="dark"] .course-payment-panel {
+    border-color: #393646;
+    background: #24222f;
+}
+
+[data-theme="dark"] .course-payment-panel h3 {
+    color: #eeedf5;
+}
+
+[data-theme="dark"] .course-payment-panel p,
+[data-theme="dark"] .course-payment-form label {
+    color: #d0cddd;
+}
+
+[data-theme="dark"] .course-payment-form input {
+    border-color: #49465b;
+    background: #272532;
+    color: #eeedf5;
+}
+
+[data-theme="dark"] .course-editor-grid label {
+    color: #d0cddd;
+}
+
+[data-theme="dark"] .course-editor-grid input,
+[data-theme="dark"] .course-editor-grid textarea {
+    border-color: #49465b;
+    background: #272532;
+    color: #eeedf5;
+}
+
+[data-theme="dark"] .course-editor-actions button:last-child {
+    background: #343044;
+    color: #d0cddd;
+}
+
+[data-theme="dark"] .course-management-page .catalog-card-actions .course-delete-button {
+    border-color: #a8554a;
+    background: #3a2828;
+    color: #ffd1c9;
+}
+
+@media (max-width: 580px) {
+    .course-management-page {
+        width: min(100% - 28px, 480px);
+        margin: 22px auto;
+    }
+
+    .course-management-header {
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .course-editor-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-editor-description {
+        grid-column: auto;
+    }
+
+    .course-catalog-toolbar {
+        justify-content: stretch;
+    }
+
+    .course-catalog-toolbar .catalog-search {
+        width: 100%;
+    }
+}

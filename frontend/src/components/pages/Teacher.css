@@ -1,0 +1,109 @@
+.teacher-page > main {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.teacher-page .teacher-salary-panel {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid #e9e8f0;
+  border-radius: 18px;
+  background: rgb(255 255 255 / 78%);
+  box-shadow: 0 10px 28px rgb(32 32 51 / 5%);
+  backdrop-filter: blur(16px);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.teacher-page .teacher-salary-panel:hover {
+  transform: translateY(-2px);
+  border-color: rgb(112 85 223 / 22%);
+  box-shadow: 0 16px 36px rgb(32 32 51 / 8%), 0 0 24px rgb(112 85 223 / 8%);
+}
+
+.teacher-page .teacher-salary-panel h2 {
+  margin: 0 0 20px;
+  color: #29293f;
+  font-size: 1.12rem;
+  letter-spacing: -0.025em;
+}
+
+.teacher-page .teacher-salary-panel .salary-table-wrap {
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
+.teacher-page .teacher-salary-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #555568;
+  font-size: 0.84rem;
+  text-align: left;
+}
+
+.teacher-page .teacher-salary-panel thead {
+  background: #f7f6fc;
+  color: #64617d;
+}
+
+.teacher-page .teacher-salary-panel th,
+.teacher-page .teacher-salary-panel td {
+  min-width: 100px;
+  padding: 13px 12px;
+  border-bottom: 1px solid #efeff4;
+  vertical-align: middle;
+}
+
+.teacher-page .teacher-salary-panel th {
+  font-size: 0.73rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.teacher-page .teacher-salary-panel th svg {
+  margin-right: 5px;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+.teacher-page .teacher-salary-panel tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.teacher-page .teacher-salary-panel tbody tr:hover {
+  background: #fcfbff;
+}
+
+[data-theme="dark"] .teacher-page .teacher-salary-panel {
+  border-color: #393646;
+  background: rgb(36 34 47 / 86%);
+}
+
+[data-theme="dark"] .teacher-page .teacher-salary-panel h2 {
+  color: #eeedf5;
+}
+
+[data-theme="dark"] .teacher-page .teacher-salary-panel table {
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .teacher-page .teacher-salary-panel thead {
+  background: #302d3d;
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .teacher-page .teacher-salary-panel th,
+[data-theme="dark"] .teacher-page .teacher-salary-panel td {
+  border-color: #393646;
+}
+
+[data-theme="dark"] .teacher-page .teacher-salary-panel tbody tr:hover {
+  background: #302d3d;
+}
+
+@media (max-width: 680px) {
+  .teacher-page > main {
+    grid-template-columns: 1fr;
+  }
+}

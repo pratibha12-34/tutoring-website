@@ -1,0 +1,267 @@
+.teacher-management-page {
+    width: min(100% - 36px, 1000px);
+    margin: 30px auto;
+    color: #29293d;
+}
+
+.teacher-management-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.teacher-management-nav a {
+    color: #684ce0;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.teacher-management-nav button,
+.teacher-management-form-actions button,
+.teacher-management-card-actions button {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 8px 13px;
+    border: 0;
+    border-radius: 9px;
+    background: #684ce0;
+    color: white;
+    font: inherit;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.teacher-management-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+    padding: 24px;
+    border-radius: 17px;
+    background: linear-gradient(110deg, #eeeaff, #fff4e9);
+}
+
+.teacher-management-header > span {
+    display: grid;
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    place-items: center;
+    border-radius: 15px;
+    background: white;
+    color: #684ce0;
+}
+
+.teacher-management-header p {
+    margin: 0 0 5px;
+    color: #7153de;
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+}
+
+.teacher-management-header h1 {
+    margin: 0;
+}
+
+.teacher-management-header small {
+    display: block;
+    margin-top: 5px;
+    color: #737386;
+}
+
+.teacher-management-form {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 22px;
+    padding: 22px;
+    border: 1px solid #e8e5f1;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.teacher-management-form h2 {
+    margin: 0;
+}
+
+.teacher-management-form label {
+    display: grid;
+    gap: 6px;
+    color: #555468;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.teacher-management-form input {
+    min-height: 42px;
+    padding: 9px 11px;
+    border: 1px solid #e3e1ec;
+    border-radius: 9px;
+    background: #fff;
+    color: #29293d;
+    font: inherit;
+}
+
+.teacher-management-form-actions,
+.teacher-management-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.teacher-management-form-actions button:last-child,
+.teacher-management-card-actions button:last-child {
+    background: #f0edf8;
+    color: #5f5c70;
+}
+
+.teacher-management-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.teacher-management-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px;
+    border: 1px solid #e8e5f1;
+    border-radius: 13px;
+    background: #fff;
+}
+
+.teacher-management-card h2 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.teacher-management-card p {
+    margin: 5px 0 0;
+    color: #737386;
+    font-size: 0.88rem;
+}
+
+.teacher-management-card-actions button:last-child {
+    background: #fff0ed;
+    color: #ab4f44;
+}
+
+.teacher-management-empty {
+    padding: 24px;
+    color: #737386;
+    text-align: center;
+}
+
+.teacher-management-salary {
+    margin-top: 28px;
+    padding: 22px;
+    border: 1px solid #e8e5f1;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.teacher-management-salary > h2 {
+    margin: 0 0 16px;
+    font-size: 1.15rem;
+}
+
+.teacher-management-salary .salary-table-wrap {
+    overflow-x: auto;
+}
+
+.teacher-management-salary table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #555568;
+    text-align: left;
+}
+
+.teacher-management-salary thead {
+    background: #f7f6fc;
+    color: #64617d;
+}
+
+.teacher-management-salary th,
+.teacher-management-salary td {
+    min-width: 100px;
+    padding: 13px 12px;
+    border-bottom: 1px solid #efeff4;
+}
+
+.teacher-management-salary th {
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.teacher-management-salary th svg {
+    margin-right: 5px;
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+.teacher-management-salary tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.teacher-management-message.error { color: #b33d39; }
+.teacher-management-message.success { color: #278359; }
+
+[data-theme="dark"] .teacher-management-page,
+[data-theme="dark"] .teacher-management-form h2,
+[data-theme="dark"] .teacher-management-card h2,
+[data-theme="dark"] .teacher-management-salary > h2 {
+    color: #eeedf5;
+}
+
+[data-theme="dark"] .teacher-management-header {
+    background: linear-gradient(110deg, #302a46, #3c302e);
+}
+
+[data-theme="dark"] .teacher-management-header small,
+[data-theme="dark"] .teacher-management-card p {
+    color: #b7b4c5;
+}
+
+[data-theme="dark"] .teacher-management-form,
+[data-theme="dark"] .teacher-management-card,
+[data-theme="dark"] .teacher-management-salary {
+    border-color: #393646;
+    background: #24222f;
+}
+
+[data-theme="dark"] .teacher-management-form label {
+    color: #d0cddd;
+}
+
+[data-theme="dark"] .teacher-management-form input {
+    border-color: #49465b;
+    background: #272532;
+    color: #eeedf5;
+}
+
+[data-theme="dark"] .teacher-management-salary table {
+    color: #d0cddd;
+}
+
+[data-theme="dark"] .teacher-management-salary thead {
+    background: #302d3d;
+    color: #d0cddd;
+}
+
+[data-theme="dark"] .teacher-management-salary th,
+[data-theme="dark"] .teacher-management-salary td {
+    border-color: #393646;
+}
+
+@media (max-width: 580px) {
+    .teacher-management-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

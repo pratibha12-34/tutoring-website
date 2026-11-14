@@ -1,0 +1,16 @@
+# Environment files and local secrets
+**/.env
+**/.env.*
+!**/.env.example
+**/.npmrc
+**/.netrc
+**/*.pem
+**/*.key
+
+# Dependencies and generated output
+**/node_modules/
+**/dist/
+**/build/
+**/coverage/
+**/.vite/
+*.log

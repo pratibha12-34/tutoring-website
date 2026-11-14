@@ -1,0 +1,460 @@
+.login-page {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  align-content: center;
+  justify-items: center;
+  gap: 20px;
+  padding: 38px 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 10% 12%, rgb(255 178 146 / 21%), transparent 30%),
+    radial-gradient(ellipse at 92% 84%, rgb(128 106 233 / 16%), transparent 34%),
+    #f8f7fc;
+}
+
+.login-page::before,
+.login-page::after {
+  position: absolute;
+  z-index: 0;
+  width: 230px;
+  height: 230px;
+  border: 1px solid rgb(112 85 223 / 10%);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.login-page::before {
+  top: -130px;
+  left: -85px;
+}
+
+.login-page::after {
+  right: -120px;
+  bottom: -155px;
+  width: 310px;
+  height: 310px;
+  border-color: rgb(255 128 105 / 14%);
+}
+
+.auth-brand,
+.auth-card,
+.auth-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.auth-topbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(100%, 470px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.auth-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #26263b;
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  text-decoration: none;
+}
+
+.auth-brand-logo {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  overflow: hidden;
+  border: 2px solid rgb(255 255 255 / 90%);
+  border-radius: 50%;
+  background: #e9e5ff;
+  box-shadow: 0 4px 14px rgb(104 76 224 / 20%);
+}
+
+.auth-brand-logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.auth-brand > span:last-child {
+  margin-left: -9px;
+  color: #7055df;
+}
+
+.auth-card {
+  width: min(100%, 470px);
+  padding: clamp(26px, 6vw, 42px);
+  border: 1px solid rgb(234 231 244 / 90%);
+  border-radius: 24px;
+  background: rgb(255 255 255 / 78%);
+  box-shadow: 0 24px 70px rgb(52 43 103 / 10%), 0 0 34px rgb(112 85 223 / 8%);
+  backdrop-filter: blur(20px);
+}
+
+.auth-heading {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.auth-heading-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 17px;
+  place-items: center;
+  border-radius: 19px;
+}
+
+.auth-heading-icon svg {
+  font-size: 1.75rem;
+}
+
+.login-heading-icon {
+  background: #eeeaff;
+  color: #7153de;
+}
+
+.register-heading-icon {
+  background: #fff0e8;
+  color: #e97c60;
+}
+
+.auth-eyebrow {
+  margin: 0 0 8px;
+  color: #765add;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.auth-heading h1 {
+  margin: 0 auto 9px;
+  color: #29283f;
+  font-size: clamp(1.65rem, 5vw, 2rem);
+  letter-spacing: -0.055em;
+  line-height: 1.2;
+}
+
+.auth-heading > p:last-child {
+  margin: 0;
+  color: #818091;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.auth-card form {
+  display: grid;
+  gap: 17px;
+}
+
+.auth-card form label {
+  display: grid;
+  gap: 8px;
+  color: #4a495e;
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.auth-input-wrap {
+  display: flex;
+  min-height: 49px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  border: 1px solid #e6e4ed;
+  border-radius: 10px;
+  background: #fff;
+  color: #a09eaf;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.auth-input-wrap:focus-within {
+  border-color: #9a87ec;
+  box-shadow: 0 0 0 3px rgb(120 102 232 / 12%);
+}
+
+.auth-input-wrap > svg {
+  flex: 0 0 auto;
+  font-size: 1.2rem;
+}
+
+.auth-input-wrap input,
+.auth-input-wrap select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #37364a;
+  font: inherit;
+  font-size: 0.87rem;
+}
+
+.auth-input-wrap select option {
+  color: #000;
+}
+
+.auth-input-wrap input::placeholder {
+  color: #aaa9b6;
+}
+
+.registration-tuition {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid #e6e4ed;
+  border-radius: 12px;
+}
+
+.registration-tuition legend {
+  padding: 0 6px;
+  color: #684ce0;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.registration-tuition-question {
+  margin: 0;
+  color: #4a495e;
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.registration-tuition-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+
+.auth-card form .registration-tuition-opt-in,
+.auth-card form .registration-tuition-courses label {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-weight: 650;
+}
+
+.registration-tuition input[type="radio"],
+.registration-tuition-courses input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  accent-color: #684ce0;
+}
+
+.auth-card form .registration-tuition > label {
+  gap: 7px;
+}
+
+.registration-tuition-class {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid #e3e1ec;
+  border-radius: 9px;
+  background: #fff;
+  color: #29293d;
+  font: inherit;
+}
+
+.registration-tuition-courses {
+  display: grid;
+  gap: 10px;
+  max-height: 220px;
+  overflow: auto;
+  padding: 10px;
+  border: 1px solid #e6e4ed;
+  border-radius: 9px;
+  color: #737386;
+  font-size: 0.82rem;
+}
+
+.registration-tuition-courses > p,
+.registration-tuition-note {
+  margin: 0;
+  color: #737386;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.registration-tuition-error {
+  color: #b33d39;
+}
+
+.auth-card form .password-visibility-toggle {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 34px;
+  min-height: 34px;
+  place-items: center;
+  margin: 0 -7px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #777589;
+}
+
+[data-theme="dark"] .registration-tuition {
+  border-color: #49465a;
+}
+
+[data-theme="dark"] .registration-tuition legend {
+  color: #c4b8ff;
+}
+
+[data-theme="dark"] .registration-tuition-question {
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .registration-tuition-class,
+[data-theme="dark"] .registration-tuition-courses {
+  border-color: #49465a;
+  background: #1d1b27;
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .registration-tuition-courses > p,
+[data-theme="dark"] .registration-tuition-note {
+  color: #aaa7bb;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.auth-card form .password-visibility-toggle:hover {
+  transform: none;
+  background: transparent;
+  color: #684ce0;
+}
+
+.auth-card form .password-visibility-toggle:focus-visible {
+  outline: 2px solid #684ce0;
+  outline-offset: 1px;
+}
+
+.auth-card form .password-visibility-toggle svg {
+  font-size: 1.15rem;
+}
+
+.auth-card form button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 10px;
+  background: #684ce0;
+  color: #fff;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 9px 20px rgb(104 76 224 / 19%);
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.auth-card form button:hover {
+  transform: translateY(-2px);
+  background: #5037c7;
+}
+
+.auth-card form button:focus-visible,
+.auth-switch a:focus-visible {
+  outline: 3px solid rgb(120 102 232 / 45%);
+  outline-offset: 3px;
+}
+
+.auth-switch {
+  margin: 22px 0 0;
+  color: #858494;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.auth-switch a {
+  color: #684ce0;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.auth-switch a span {
+  padding-left: 2px;
+}
+
+.auth-footer {
+  margin: 0;
+  color: #9897a6;
+  font-size: 0.76rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .login-page {
+  background:
+    radial-gradient(ellipse at 10% 12%, rgb(255 138 107 / 10%), transparent 30%),
+    radial-gradient(ellipse at 92% 84%, rgb(128 106 233 / 12%), transparent 34%),
+    #171620;
+}
+
+[data-theme="dark"] .auth-brand {
+  color: #f0eef9;
+}
+
+[data-theme="dark"] .auth-card {
+  border-color: #393646;
+  background: rgb(36 34 47 / 82%);
+  box-shadow: 0 24px 70px rgb(0 0 0 / 25%), 0 0 36px rgb(142 119 255 / 10%);
+  backdrop-filter: blur(20px);
+}
+
+[data-theme="dark"] .auth-heading h1 {
+  color: #f0eef8;
+}
+
+[data-theme="dark"] .auth-heading > p:last-child,
+[data-theme="dark"] .auth-switch,
+[data-theme="dark"] .auth-footer {
+  color: #aaa7bb;
+}
+
+[data-theme="dark"] .auth-card form label {
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .auth-input-wrap {
+  border-color: #49465a;
+  background: #1d1b27;
+  color: #aaa5bd;
+}
+
+[data-theme="dark"] .auth-input-wrap input,
+[data-theme="dark"] .auth-input-wrap select {
+  color: #eeedf5;
+}
+
+[data-theme="dark"] .auth-input-wrap input::placeholder {
+  color: #817d91;
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    gap: 16px;
+    padding: 24px 16px;
+  }
+
+  .auth-card {
+    padding: 26px 21px;
+    border-radius: 20px;
+  }
+}

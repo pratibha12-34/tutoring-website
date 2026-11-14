@@ -1,0 +1,569 @@
+.admin-toolbar-section {
+  margin-bottom: 24px;
+}
+
+.admin-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.admin-action-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid #e9e8f0;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 78%);
+  box-shadow: 0 8px 22px rgb(32 32 51 / 5%);
+}
+
+.admin-action-menu {
+  position: relative;
+}
+
+.admin-action-menu > summary {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid #e9e8f0;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 90%);
+  color: #555468;
+  box-shadow: 0 8px 22px rgb(32 32 51 / 5%);
+  cursor: pointer;
+  font-size: 0.84rem;
+  font-weight: 750;
+  list-style: none;
+}
+
+.admin-action-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.admin-action-menu > summary:hover,
+.admin-action-menu[open] > summary {
+  border-color: #c9c0f1;
+  background: #f7f5ff;
+  color: #684ce0;
+}
+
+.admin-action-menu > summary:focus-visible {
+  outline: 3px solid rgb(104 76 224 / 30%);
+  outline-offset: 2px;
+}
+
+.admin-action-menu > summary > svg:first-child {
+  font-size: 1.15rem;
+}
+
+.admin-action-menu .admin-action-chevron {
+  margin-left: 2px;
+  font-size: 1.2rem;
+  transition: transform 150ms ease;
+}
+
+.admin-action-menu[open] .admin-action-chevron {
+  transform: rotate(180deg);
+}
+
+.admin-action-options {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 7px);
+  left: 0;
+  display: grid;
+  min-width: 150px;
+  gap: 3px;
+  padding: 6px;
+  border: 1px solid #e9e8f0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgb(34 31 54 / 15%);
+}
+
+.admin-action-options a {
+  padding: 9px 10px;
+  border-radius: 8px;
+  color: #4a495e;
+  font-size: 0.82rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.admin-action-options a:hover {
+  background: #f0edff;
+  color: #684ce0;
+}
+
+.admin-action-options a:focus-visible {
+  outline: 2px solid #684ce0;
+  outline-offset: 1px;
+}
+
+.admin-action-label {
+  margin: 0 4px;
+  color: #555468;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.admin-action-button {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 10px;
+  background: #f0edff;
+  color: #684ce0;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.admin-action-button:hover {
+  transform: translateY(-1px);
+  background: #684ce0;
+  color: #fff;
+}
+
+.admin-action-button:focus-visible {
+  outline: 3px solid rgb(104 76 224 / 30%);
+  outline-offset: 2px;
+}
+
+.admin-action-button svg {
+  font-size: 1.2rem;
+}
+
+[data-theme="dark"] .admin-action-group {
+  border-color: #393646;
+  background: rgb(36 34 47 / 82%);
+}
+
+[data-theme="dark"] .admin-action-menu > summary {
+  border-color: #393646;
+  background: rgb(36 34 47 / 90%);
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .admin-action-menu > summary:hover,
+[data-theme="dark"] .admin-action-menu[open] > summary {
+  border-color: #61558e;
+  background: #302d3d;
+  color: #c4b8ff;
+}
+
+[data-theme="dark"] .admin-action-options {
+  border-color: #393646;
+  background: #24222f;
+}
+
+[data-theme="dark"] .admin-action-options a {
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .admin-action-options a:hover {
+  background: #39334e;
+  color: #c4b8ff;
+}
+
+[data-theme="dark"] .admin-action-label {
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .admin-action-button {
+  background: #39334e;
+  color: #c4b8ff;
+}
+
+[data-theme="dark"] .admin-action-button:hover {
+  background: #684ce0;
+  color: #fff;
+}
+
+.admin-page > main {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.admin-page > main > .admin-student-fees {
+  grid-column: 1 / -1;
+}
+
+.admin-fees-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-fees-table-wrap table {
+  min-width: 980px;
+}
+
+.admin-pending-payments .admin-fees-table-wrap table {
+  min-width: 860px;
+}
+
+.admin-fee-payment-history {
+  display: grid;
+  min-width: 220px;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-fee-payment-history li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 3px 8px;
+  padding: 8px;
+  border: 1px solid #e8e5f1;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}
+
+.admin-fee-payment-history li > span {
+  color: #555468;
+}
+
+.admin-fee-payment-history li > small {
+  grid-column: 1 / -1;
+  color: #777589;
+}
+
+.admin-fee-payment-history .payment-status {
+  text-transform: capitalize;
+}
+
+.admin-fee-payment-history .payment-status-pending {
+  color: #a56d13;
+}
+
+.admin-fee-payment-history .payment-status-verified {
+  color: #287452;
+}
+
+.admin-fee-payment-history .payment-status-rejected {
+  color: #b33d39;
+}
+
+.admin-payment-review-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.admin-payment-review-actions button {
+  min-height: 32px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 7px;
+  background: #287452;
+  color: #fff;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.admin-payment-review-actions button:last-child {
+  background: #b33d39;
+}
+
+.admin-payment-review-actions button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.admin-fees-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-page > main > .admin-student-fees > .admin-fees-heading h2 {
+  margin-bottom: 8px;
+}
+
+.admin-fees-description {
+  margin: 0 0 16px;
+  color: #777589;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.admin-fees-refresh,
+.admin-fee-edit-button {
+  display: inline-flex;
+  min-height: 35px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 10px;
+  border: 1px solid #e8e5f1;
+  border-radius: 8px;
+  background: #fff;
+  color: #684ce0;
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 750;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.admin-fees-refresh:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.admin-fee-edit-button svg {
+  font-size: 1rem;
+}
+
+.admin-fee-edit-form {
+  display: grid;
+  min-width: 290px;
+  grid-template-columns: repeat(2, minmax(90px, 1fr)) auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.admin-fee-edit-form label {
+  display: grid;
+  gap: 4px;
+  color: #555468;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.admin-fee-edit-form input {
+  width: 100%;
+  min-height: 34px;
+  padding: 5px 7px;
+  border: 1px solid #e3e1ec;
+  border-radius: 7px;
+  background: #fff;
+  color: #29293d;
+  font: inherit;
+}
+
+.admin-fee-edit-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.admin-fee-edit-actions button {
+  min-height: 34px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 7px;
+  background: #684ce0;
+  color: #fff;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-fee-edit-actions button[type="button"] {
+  background: #efedf5;
+  color: #555468;
+}
+
+.admin-fee-edit-actions button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.admin-fees-error,
+.admin-fees-notice {
+  margin: 8px 0;
+  font-size: 0.8rem;
+}
+
+.admin-fees-error {
+  color: #b33d39;
+}
+
+.admin-fees-notice {
+  color: #287452;
+}
+
+[data-theme="dark"] .admin-fees-description {
+  color: #aaa7bb;
+}
+
+[data-theme="dark"] .admin-fee-payment-history li {
+  border-color: #49465a;
+}
+
+[data-theme="dark"] .admin-fee-payment-history li > span,
+[data-theme="dark"] .admin-fee-payment-history li > small {
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .admin-fees-refresh,
+[data-theme="dark"] .admin-fee-edit-button {
+  border-color: #49465a;
+  background: #1d1b27;
+  color: #c4b8ff;
+}
+
+[data-theme="dark"] .admin-payment-review-actions button {
+  filter: brightness(1.15);
+}
+
+[data-theme="dark"] .admin-fee-edit-form label {
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .admin-fee-edit-form input {
+  border-color: #49465a;
+  background: #1d1b27;
+  color: #eeedf5;
+}
+
+[data-theme="dark"] .admin-fee-edit-actions button[type="button"] {
+  background: #393646;
+  color: #d0cddd;
+}
+
+.admin-pin-settings form {
+  display: grid;
+  gap: 14px;
+}
+
+.admin-pin-toggle-button {
+  min-height: 42px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: #684ce0;
+  color: #fff;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.admin-pin-toggle-button:hover {
+  background: #5037c7;
+}
+
+.admin-pin-toggle-button:focus-visible {
+  outline: 3px solid rgb(104 76 224 / 30%);
+  outline-offset: 2px;
+}
+
+.admin-pin-settings form label {
+  display: grid;
+  gap: 7px;
+  color: #555468;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.admin-pin-help {
+  color: #777589;
+  font-size: 0.76rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.admin-pin-settings form input {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid #e3e1ec;
+  border-radius: 10px;
+  background: #fff;
+  color: #29293d;
+  font: inherit;
+}
+
+.admin-pin-settings form .admin-pin-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 8px;
+  border: 1px solid #e3e1ec;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.admin-pin-settings form .admin-pin-input-wrap input {
+  min-width: 0;
+  border: 0;
+  background: transparent;
+}
+
+.admin-pin-settings form .admin-pin-input-wrap input:focus-visible {
+  outline: 0;
+}
+
+.admin-pin-visibility-toggle {
+  display: inline-grid;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #777589;
+  cursor: pointer;
+}
+
+.admin-pin-visibility-toggle:hover {
+  background: #f0edff;
+  color: #684ce0;
+}
+
+.admin-pin-visibility-toggle:focus-visible {
+  outline: 2px solid #684ce0;
+  outline-offset: 1px;
+}
+
+.admin-pin-visibility-toggle svg {
+  font-size: 1.15rem;
+}
+
+.admin-pin-settings form input:focus-visible {
+  outline: 3px solid rgb(104 76 224 / 25%);
+  outline-offset: 1px;
+}
+
+.admin-pin-settings form button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 10px;
+  background: #684ce0;
+  color: #fff;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.admin-pin-settings form button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+@media (max-width: 680px) {
+  .admin-page > main {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-page > main > section {
+    overflow-x: auto;
+  }
+
+  .admin-toolbar {
+    justify-content: flex-end;
+  }
+}

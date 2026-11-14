@@ -1,0 +1,373 @@
+.student-page > main {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.student-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.student-section-heading h2 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  font-size: 1.18rem;
+}
+
+.student-section-heading > a {
+  color: #684ce0;
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.student-learning-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.student-learning-card {
+  padding: 16px;
+  border: 1px solid #e8e5f1;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.student-learning-card > p {
+  margin: 0 0 6px;
+  color: #7153de;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.student-learning-card h3 {
+  margin: 0;
+  color: #29293d;
+  font-size: 1rem;
+}
+
+.student-learning-card > span,
+.student-empty,
+.student-data-error {
+  display: block;
+  margin: 8px 0 0;
+  color: #737386;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.student-data-error { color: #b33d39; }
+
+.student-tuition-class,
+.student-tuition-status,
+.student-tuition-help {
+  margin: 10px 0 0;
+  color: #737386;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.student-tuition-status {
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.student-tuition-status-pending { color: #a56d13; }
+.student-tuition-status-approved { color: #287452; }
+.student-tuition-status-rejected { color: #b33d39; }
+
+.student-tuition-course-status {
+  margin: 10px 0 0;
+  color: #737386;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.student-tuition-course-active { color: #287452; }
+
+.student-tuition-action,
+.student-tuition-cancel {
+  width: fit-content;
+  min-height: 38px;
+  margin-top: 12px;
+  padding: 0 13px;
+  border: 0;
+  border-radius: 8px;
+  background: #684ce0;
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.student-tuition-payment {
+  margin-top: 14px;
+}
+
+.student-tuition-cancel {
+  margin-left: 8px;
+  background: #e8e5f1;
+  color: #49465a;
+}
+
+[data-theme="dark"] .student-tuition-course-status { color: #b7b4c5; }
+[data-theme="dark"] .student-tuition-course-active { color: #8bd1ad; }
+[data-theme="dark"] .student-tuition-cancel {
+  background: #393646;
+  color: #eeedf5;
+}
+
+[data-theme="dark"] .student-section-heading > a {
+  color: #c1b4ff;
+}
+
+[data-theme="dark"] .student-learning-card {
+  border-color: #393646;
+  background: #24222f;
+}
+
+[data-theme="dark"] .student-learning-card h3 {
+  color: #eeedf5;
+}
+
+[data-theme="dark"] .student-learning-card > span,
+[data-theme="dark"] .student-empty,
+[data-theme="dark"] .student-tuition-class,
+[data-theme="dark"] .student-tuition-help {
+  color: #b7b4c5;
+}
+
+.student-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 21px;
+  color: #518a72;
+  font-size: 0.8rem;
+}
+
+.student-fee p {
+  max-width: 460px;
+  margin: 0;
+  color: #777789;
+  line-height: 1.65;
+}
+
+.student-fee-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0 22px;
+}
+
+.student-fee-summary > div {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+  border: 1px solid #e8e5f1;
+  border-radius: 12px;
+  background: #faf9fd;
+}
+
+.student-fee-summary span,
+.student-payment-qr span {
+  color: #737386;
+  font-size: 0.76rem;
+}
+
+.student-fee-summary strong {
+  color: #29293d;
+  font-size: 1.05rem;
+}
+
+.student-upi-payment,
+.student-payment-history {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #e8e5f1;
+}
+
+.student-upi-payment h3,
+.student-payment-history h3 {
+  margin: 0 0 12px;
+  color: #29293d;
+  font-size: 1rem;
+}
+
+.student-payment-amount,
+.student-payment-form label {
+  display: grid;
+  max-width: 360px;
+  gap: 6px;
+  color: #555468;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.student-payment-amount input,
+.student-payment-form input {
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid #e3e1ec;
+  border-radius: 8px;
+  background: #fff;
+  color: #29293d;
+  font: inherit;
+}
+
+.student-payment-qr {
+  display: grid;
+  width: fit-content;
+  justify-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 10px;
+  border: 1px solid #e8e5f1;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.student-payment-qr img {
+  display: block;
+  width: 220px;
+  height: 220px;
+}
+
+.student-upi-link,
+.student-payment-form button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #684ce0;
+  color: #fff;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.student-payment-instructions {
+  margin: 12px 0 !important;
+  font-size: 0.82rem;
+}
+
+.student-payment-form {
+  display: grid;
+  gap: 10px;
+}
+
+.student-payment-form button {
+  width: fit-content;
+  margin-top: 0;
+}
+
+.student-payment-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.student-payment-history ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.student-payment-history li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid #e8e5f1;
+  border-radius: 9px;
+  color: #555468;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.payment-status {
+  flex: 0 0 auto;
+  text-transform: capitalize;
+}
+
+.payment-status-pending { color: #a56d13; }
+.payment-status-verified { color: #287452; }
+.payment-status-rejected { color: #b33d39; }
+.student-payment-notice { color: #287452 !important; }
+
+[data-theme="dark"] .student-fee-summary > div,
+[data-theme="dark"] .student-payment-qr {
+  border-color: #393646;
+  background: #24222f;
+}
+
+[data-theme="dark"] .student-fee-summary strong,
+[data-theme="dark"] .student-upi-payment h3,
+[data-theme="dark"] .student-payment-history h3 {
+  color: #eeedf5;
+}
+
+[data-theme="dark"] .student-fee-summary span,
+[data-theme="dark"] .student-payment-qr span,
+[data-theme="dark"] .student-payment-history li {
+  color: #b7b4c5;
+}
+
+[data-theme="dark"] .student-upi-payment,
+[data-theme="dark"] .student-payment-history {
+  border-color: #393646;
+}
+
+[data-theme="dark"] .student-payment-amount,
+[data-theme="dark"] .student-payment-form label {
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .student-payment-amount input,
+[data-theme="dark"] .student-payment-form input,
+[data-theme="dark"] .student-payment-history li {
+  border-color: #49465a;
+  background: #1d1b27;
+  color: #eeedf5;
+}
+
+.student-progress > span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #51b98b;
+  box-shadow: 0 0 0 4px #e4f7ed;
+}
+
+.welcome-wave {
+  color: #ffd27b;
+  font-size: 0.85em;
+  vertical-align: -2px;
+}
+
+@media (max-width: 760px) {
+  .student-page > main {
+    grid-template-columns: 1fr;
+  }
+
+  .student-fee-summary {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,153 @@
+.teacher-payout-cell {
+    min-width: 190px;
+}
+
+.teacher-payout-cell > span {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.teacher-payout-paid {
+    color: #287452;
+    font-weight: 750;
+}
+
+.teacher-payout-button,
+.teacher-payout-link,
+.teacher-payout-form button {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    padding: 7px 11px;
+    border: 0;
+    border-radius: 8px;
+    background: #684ce0;
+    color: #fff;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 750;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.teacher-payout-button:disabled,
+.teacher-payout-form button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.teacher-payout-panel {
+    display: grid;
+    justify-items: start;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid #e8e5f1;
+    border-radius: 12px;
+    background: #faf9fd;
+}
+
+.teacher-payout-panel h3,
+.teacher-payout-panel p {
+    margin: 0;
+}
+
+.teacher-payout-panel h3 {
+    color: #29293d;
+    font-size: 1rem;
+}
+
+.teacher-payout-panel p {
+    color: #737386;
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.teacher-payout-warning {
+    font-weight: 700;
+}
+
+.teacher-payout-qr {
+    padding: 8px;
+    border: 1px solid #e8e5f1;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.teacher-payout-qr img {
+    display: block;
+    width: 220px;
+    height: 220px;
+}
+
+.teacher-payout-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 10px;
+}
+
+.teacher-payout-form label {
+    display: grid;
+    min-width: min(100%, 300px);
+    gap: 5px;
+    color: #555468;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.teacher-payout-form input {
+    min-height: 38px;
+    padding: 8px 10px;
+    border: 1px solid #e3e1ec;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.teacher-payout-form button {
+    margin-top: 0;
+}
+
+.teacher-payout-form button:last-child {
+    background: #f0edf8;
+    color: #5f5c70;
+}
+
+.teacher-payout-message {
+    margin: 0 0 10px;
+    font-size: 0.84rem;
+}
+
+.teacher-payout-message.error {
+    color: #b33d39;
+}
+
+.teacher-payout-message.success {
+    color: #287452;
+}
+
+[data-theme="dark"] .teacher-payout-panel {
+    border-color: #393646;
+    background: #24222f;
+}
+
+[data-theme="dark"] .teacher-payout-panel h3 {
+    color: #eeedf5;
+}
+
+[data-theme="dark"] .teacher-payout-panel p,
+[data-theme="dark"] .teacher-payout-form label {
+    color: #d0cddd;
+}
+
+[data-theme="dark"] .teacher-payout-qr {
+    border-color: #393646;
+    background: #fff;
+}
+
+[data-theme="dark"] .teacher-payout-form input {
+    border-color: #49465b;
+    background: #272532;
+    color: #eeedf5;
+}

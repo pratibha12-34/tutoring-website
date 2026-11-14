@@ -1,0 +1,282 @@
+.enquiry-chat-page {
+  min-height: 100vh;
+  padding: 28px 20px 36px;
+  background:
+    radial-gradient(ellipse at 10% 12%, rgb(255 178 146 / 18%), transparent 30%),
+    radial-gradient(ellipse at 92% 84%, rgb(128 106 233 / 14%), transparent 34%),
+    #f8f7fc;
+}
+
+.enquiry-chat-topbar {
+  display: flex;
+  width: min(100%, 900px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 auto 28px;
+}
+
+.enquiry-chat-card {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 42px);
+  border: 1px solid #e9e6f1;
+  border-radius: 22px;
+  background: rgb(255 255 255 / 90%);
+  box-shadow: 0 20px 60px rgb(52 43 103 / 9%);
+}
+
+.enquiry-chat-card > .eyebrow {
+  margin: 0 0 8px;
+}
+
+.enquiry-chat-card h1 {
+  margin: 0;
+  color: #29283f;
+  font-size: clamp(1.8rem, 5vw, 2.45rem);
+  letter-spacing: -0.05em;
+}
+
+.enquiry-chat-summary,
+.enquiry-chat-toolbar,
+.enquiry-chat-message-meta,
+.enquiry-chat-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.enquiry-chat-summary {
+  flex-wrap: wrap;
+  margin-top: 16px;
+  color: #777589;
+  font-size: 0.84rem;
+}
+
+.enquiry-chat-toolbar {
+  margin: 24px 0 13px;
+}
+
+.enquiry-chat-toolbar p,
+.enquiry-chat-muted {
+  margin: 0;
+  color: #777589;
+  font-size: 0.84rem;
+}
+
+.enquiry-chat-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 11px;
+  border: 1px solid #e8e5f1;
+  border-radius: 9px;
+  background: #fff;
+  color: #684ce0;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.enquiry-chat-toolbar button svg {
+  font-size: 1rem;
+}
+
+.enquiry-chat-messages {
+  display: grid;
+  max-height: 440px;
+  gap: 12px;
+  overflow: auto;
+  padding: 4px 2px 18px;
+}
+
+.enquiry-chat-message {
+  max-width: min(88%, 650px);
+  padding: 13px 15px;
+  border: 1px solid #e9e6f1;
+  border-radius: 14px 14px 14px 4px;
+  background: #fff;
+}
+
+.enquiry-chat-message--candidate {
+  justify-self: end;
+  border-color: #ded7ff;
+  border-radius: 14px 14px 4px;
+  background: #f5f2ff;
+}
+
+.enquiry-chat-message-meta {
+  color: #777589;
+  font-size: 0.72rem;
+}
+
+.enquiry-chat-message-meta strong {
+  color: #514879;
+}
+
+.enquiry-chat-message > p {
+  margin: 8px 0 0;
+  color: #39374e;
+  font-size: 0.89rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.enquiry-chat-form {
+  display: grid;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid #eceaf2;
+}
+
+.enquiry-chat-form label {
+  display: grid;
+  gap: 8px;
+  color: #4a495e;
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+
+.enquiry-chat-form textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid #e3e1ec;
+  border-radius: 10px;
+  background: #fff;
+  color: #39374e;
+  font: inherit;
+  font-size: 0.88rem;
+  resize: vertical;
+}
+
+.enquiry-chat-form textarea:focus-visible {
+  outline: 3px solid rgb(104 76 224 / 25%);
+  outline-offset: 1px;
+}
+
+.enquiry-chat-form-footer > span {
+  color: #898799;
+  font-size: 0.74rem;
+}
+
+.enquiry-chat-form-footer button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 9px;
+  background: #684ce0;
+  color: #fff;
+  font: inherit;
+  font-size: 0.83rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.enquiry-chat-form-footer button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.enquiry-chat-form-footer button svg {
+  font-size: 1.05rem;
+}
+
+.enquiry-chat-error,
+.enquiry-chat-status {
+  margin: 14px 0 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.enquiry-chat-error {
+  color: #b33d39;
+}
+
+.enquiry-chat-status {
+  color: #287452;
+}
+
+.enquiry-chat-privacy {
+  width: min(100%, 900px);
+  margin: 14px auto 0;
+  color: #898799;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .enquiry-chat-page {
+  background:
+    radial-gradient(ellipse at 10% 12%, rgb(255 138 107 / 9%), transparent 30%),
+    radial-gradient(ellipse at 92% 84%, rgb(128 106 233 / 10%), transparent 34%),
+    #171620;
+}
+
+[data-theme="dark"] .enquiry-chat-card {
+  border-color: #393646;
+  background: rgb(36 34 47 / 90%);
+}
+
+[data-theme="dark"] .enquiry-chat-card h1,
+[data-theme="dark"] .enquiry-chat-message > p {
+  color: #f0eef8;
+}
+
+[data-theme="dark"] .enquiry-chat-summary,
+[data-theme="dark"] .enquiry-chat-toolbar p,
+[data-theme="dark"] .enquiry-chat-muted,
+[data-theme="dark"] .enquiry-chat-message-meta,
+[data-theme="dark"] .enquiry-chat-privacy {
+  color: #aaa7bb;
+}
+
+[data-theme="dark"] .enquiry-chat-message {
+  border-color: #49465a;
+  background: #24222f;
+}
+
+[data-theme="dark"] .enquiry-chat-message--candidate {
+  border-color: #514777;
+  background: #302b43;
+}
+
+[data-theme="dark"] .enquiry-chat-message-meta strong {
+  color: #d6ceff;
+}
+
+[data-theme="dark"] .enquiry-chat-form {
+  border-color: #393646;
+}
+
+[data-theme="dark"] .enquiry-chat-form label {
+  color: #d0cddd;
+}
+
+[data-theme="dark"] .enquiry-chat-form textarea,
+[data-theme="dark"] .enquiry-chat-toolbar button {
+  border-color: #49465a;
+  background: #1d1b27;
+  color: #eeedf5;
+}
+
+@media (max-width: 520px) {
+  .enquiry-chat-page {
+    padding: 20px 14px;
+  }
+
+  .enquiry-chat-message {
+    max-width: 96%;
+  }
+
+  .enquiry-chat-form-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
