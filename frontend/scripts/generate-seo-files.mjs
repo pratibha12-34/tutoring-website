@@ -9,6 +9,9 @@ const frontendDirectory = path.resolve(scriptDirectory, '..');
 const buildEnv = loadEnv('production', frontendDirectory, '');
 const configuredUrl = (process.env.VITE_SITE_URL || buildEnv.VITE_SITE_URL || '').trim();
 const apiBaseUrl = (process.env.VITE_API_BASE || buildEnv.VITE_API_BASE || '').trim();
+const relativeApiBase = apiBaseUrl.startsWith('/')
+    ? apiBaseUrl.replace(/\/+$/, '')
+    : null;
 const sitemapRoutes = [
     { path: '/', priority: '1.0', changeFrequency: 'weekly' },
     { path: '/about', priority: '0.6', changeFrequency: 'monthly' },
@@ -70,13 +73,16 @@ if (!siteOrigin) {
 }
 
 const dynamicRoutes = [];
-if (apiBaseUrl && !apiBaseUrl.includes('.example') && !/localhost|127\.0\.0\.1/i.test(apiBaseUrl)) {
+if (apiBaseUrl && (relativeApiBase || (!apiBaseUrl.includes('.example') && !/localhost|127\.0\.0\.1/i.test(apiBaseUrl)))) {
     for (const [endpoint, routePrefix, priority] of [
         ['/allcourses', '/courses', '0.7'],
         ['/allbatches', '/batches', '0.6']
     ]) {
         try {
-            const response = await fetch(new URL(endpoint, `${apiBaseUrl.replace(/\/+$/, '')}/`));
+            const apiUrl = relativeApiBase
+                ? new URL(`${relativeApiBase}${endpoint}`, siteOrigin)
+                : new URL(endpoint, `${apiBaseUrl.replace(/\/+$/, '')}/`);
+            const response = await fetch(apiUrl);
             if (!response.ok) {
                 console.warn(`Could not add ${endpoint} pages to sitemap (HTTP ${response.status}).`);
                 continue;
