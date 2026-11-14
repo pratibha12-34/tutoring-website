@@ -1,6 +1,6 @@
 import Student from './components/pages/Student.jsx';
 import Home from './components/layouts/Home.jsx';
-import Login from './components/pages/login.jsx';
+import Login from './components/pages/Login.jsx';
 import Admin from './components/pages/admin.jsx';
 import Teacher from './components/pages/Teacher.jsx';
 import Register from './components/pages/Register.jsx';
@@ -11,7 +11,7 @@ import Notes from './components/layouts/Notes.jsx';
 import About from './components/pages/about.jsx';
 import Contact from './components/pages/Contact.jsx';
 import PlayArena from './components/pages/PlayArena.jsx';
-// import Course_form, { Course_add, Course_edit, Course_delete } from './components/layouts/course_form.jsx';
+// import Course_form, { Course_add, Course_edit, Course_delete } from './components/layouts/Course_form.jsx';
 import Course from './components/pages/Course.jsx';
 import Teacher_sal from './components/layouts/Teacher_salary';
 import Batch from './components/pages/Batch.jsx';
