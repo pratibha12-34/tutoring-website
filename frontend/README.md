@@ -1,16 +1,24 @@
-# React + Vite
+# Garvit frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Local development
 
-Currently, two official plugins are available:
+Install dependencies and start the Vite development server:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```sh
+npm ci
+npm run dev
+```
 
-## React Compiler
+Copy `.env.example` to `.env` and set `VITE_API_BASE` to the backend origin. Do not commit `.env` or credentials.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Production build and SEO
 
-## Expanding the ESLint configuration
+Set `VITE_SITE_URL` to the public HTTPS origin (for example, `https://garvit.example`) before building. Set `VITE_API_BASE` to the deployed backend origin as well.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```sh
+npm run build
+```
+
+The build writes `robots.txt` and `sitemap.xml` into `dist`. The sitemap lists the public home, about, contact, course-catalog, and batch-catalog pages. If the configured backend is reachable during the build, it also adds the current course and batch detail URLs. Build output warns when the site URL or catalog API is unavailable, rather than silently claiming the sitemap is complete.
+
+The app updates title, description, canonical, social-preview, and structured-data metadata as public routes render. Search engines that do not execute JavaScript may not see route-specific metadata or course details; server-side rendering or prerendering is a separate deployment improvement.

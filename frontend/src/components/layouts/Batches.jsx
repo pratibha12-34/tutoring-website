@@ -5,6 +5,7 @@ import QRCode from 'qrcode';
 import { useAuth } from '../auth-context.js';
 import { apiRequest } from '../api.js';
 import { MAX_VIDEO_BYTES, VIDEO_MIME_TYPES, uploadVideoFile } from '../fileUploads.js';
+import Seo from '../Seo.jsx';
 import './CatalogCards.css';
 import './Courses.css';
 import './Batches.css';
@@ -288,6 +289,12 @@ const Batches = () => {
 
     return (
         <main className="batch-management-page">
+            <Seo
+                title={user?.role === 'admin' ? 'Manage Tutoring Batches | Garvit' : 'Live Tutoring Batches | Garvit'}
+                description="Explore tutoring batches with teachers, live classes and a learning community. Find a batch that fits your schedule and goals."
+                canonicalPath="/allbatches"
+                noIndex={user?.role === 'admin'}
+            />
             <nav className="batch-management-nav" aria-label="Batch page navigation">
                 <Link to={user?.role === 'admin' ? '/admin' : user?.role === 'student' ? '/student' : '/'}>Back to {user?.role === 'admin' ? 'admin panel' : user?.role === 'student' ? 'student panel' : 'home'}</Link>
                 {user?.role === 'admin' && (
@@ -438,7 +445,7 @@ const Batches = () => {
                     <article className="catalog-card" key={item._id || item.batch_id}>
                         <Link className="catalog-card-image-link" to={`/batches/${encodeURIComponent(item._id)}`} aria-label={`View ${item.batch_name}`}>
                             {item.batch_img
-                                ? <img className="catalog-card-image" src={item.batch_img} alt="" />
+                                ? <img className="catalog-card-image" src={item.batch_img} alt={`${item.batch_name} batch`} />
                                 : <div className="catalog-card-image-placeholder" aria-hidden="true"><Groups /></div>}
                         </Link>
                         <div className="catalog-card-content">

@@ -1,14 +1,20 @@
 import { ArrowForward, AutoStories, Groups, Lightbulb, School } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import Navbar from '../layouts/Navbar.jsx';
+import Seo from '../Seo.jsx';
 import './InfoPages.css';
 
 const About = () => (
     <main className="info-page about-page">
+        <Seo
+            title="About Garvit | Tutoring and Learning"
+            description="Learn how Garvit brings tutoring courses, live classes and study resources together to help learners grow."
+            canonicalPath="/about"
+        />
         <nav className="site-nav" aria-label="Main navigation">
-            <Link className="brand" to="/" aria-label="BrightPath home">
+            <Link className="brand" to="/" aria-label="Garvit home">
                 <span className="brand-mark"><img src="/assests/logo1.jpeg" alt="" /></span>
-                <span>Bright<span className="brand-accent">Path</span></span>
+                <span>Gar<span className="brand-accent">vit</span></span>
             </Link>
             <div className="site-nav-links"><Navbar /></div>
         </nav>
@@ -17,7 +23,7 @@ const About = () => (
             <div className="info-hero-copy">
                 <p className="eyebrow"><span className="eyebrow-dot" /> A PLACE TO FIND YOUR NEXT STEP</p>
                 <h1>Learning is a journey. <span>Let’s make it yours.</span></h1>
-                <p>BrightPath brings lessons, live learning and helpful study tools together, so learners can build confidence one idea at a time.</p>
+                <p>Garvit brings lessons, live learning and helpful study tools together, so learners can build confidence one idea at a time.</p>
                 <div className="hero-actions">
                     <Link className="primary-button" to="/register">Start your journey <ArrowForward /></Link>
                     <Link className="text-button" to="/allcourses">Explore courses</Link>
@@ -39,13 +45,13 @@ const About = () => (
 
         <section className="about-purpose">
             <div className="about-section-heading">
-                <p className="eyebrow">WHY BRIGHTPATH</p>
+                <p className="eyebrow">WHY GARVIT</p>
                 <h2>Make room for the <span>“aha” moments.</span></h2>
             </div>
             <p>Every learner starts somewhere different. We bring courses, batches, class resources and practice into one welcoming space, making it easier to keep showing up and see how far you’ve come.</p>
         </section>
 
-        <section className="about-pillars" aria-label="What guides BrightPath">
+        <section className="about-pillars" aria-label="What guides Garvit">
             <article className="about-pillar">
                 <span className="about-pillar-icon pillar-lavender"><School /></span>
                 <p className="course-number">01 · BUILD A FOUNDATION</p>
@@ -78,7 +84,7 @@ const About = () => (
         </section>
 
         <footer className="site-footer">
-            <Link className="brand" to="/"><span className="brand-mark"><img src="/assests/logo1.jpeg" alt="" /></span><span>Bright<span className="brand-accent">Path</span></span></Link>
+            <Link className="brand" to="/"><span className="brand-mark"><img src="/assests/logo1.jpeg" alt="" /></span><span>Gar<span className="brand-accent">vit</span></span></Link>
             <p>Small steps. Bright futures.</p>
             <Link to="/contact">Talk with us <ArrowForward /></Link>
         </footer>

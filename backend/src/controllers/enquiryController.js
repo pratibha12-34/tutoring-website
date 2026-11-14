@@ -101,12 +101,12 @@ async function submitEnquiry(req, res) {
             const [candidateDelivery, adminDelivery] = await Promise.allSettled([
                 sendEmail({
                     to: email,
-                    subject: 'Your BrightPath enquiry conversation',
-                    text: `Hi ${name},\n\nThanks for reaching out to BrightPath. Your enquiry has been received.\n\nUse this private link to view our replies and continue the conversation:\n${conversationUrl}\n\nKeep this link private. Anyone with it can view and reply to this enquiry.`
+                    subject: 'Your Garvit enquiry conversation',
+                    text: `Hi ${name},\n\nThanks for reaching out to Garvit. Your enquiry has been received.\n\nUse this private link to view our replies and continue the conversation:\n${conversationUrl}\n\nKeep this link private. Anyone with it can view and reply to this enquiry.`
                 }),
                 sendEmail({
                     to: settings.adminEmail,
-                    subject: `New BrightPath enquiry: ${topic}`,
+                    subject: `New Garvit enquiry: ${topic}`,
                     text: `A new enquiry was submitted by ${name} (${email}).\n\n${message}\n\nOpen the admin enquiry inbox: ${new URL('/admin#enquiries', settings.frontendUrl)}`
                 })
             ]);
@@ -127,7 +127,7 @@ async function submitEnquiry(req, res) {
         return res.status(201).json({
             message: emailSent
                 ? 'Your enquiry was received. Check your email for a private link to continue the conversation.'
-                : 'Your enquiry was saved, but we could not send the conversation link. The BrightPath team can still see your enquiry.',
+                : 'Your enquiry was saved, but we could not send the conversation link. The Garvit team can still see your enquiry.',
             emailSent
         });
     } catch (error) {
@@ -165,7 +165,7 @@ async function sendCandidateMessage(req, res) {
         const enquiry = await Enquiry.findOne({ accessTokenHash: hashAccessToken(token) });
         if (!enquiry) return res.status(404).json({ error: 'This enquiry conversation could not be found.' });
         if (enquiry.messages.length >= MAX_MESSAGES_PER_ENQUIRY) {
-            return res.status(409).json({ error: 'This conversation has reached its message limit. Contact BrightPath for further help.' });
+            return res.status(409).json({ error: 'This conversation has reached its message limit. Contact Garvit for further help.' });
         }
 
         enquiry.messages.push({ sender: 'candidate', message });
@@ -177,7 +177,7 @@ async function sendCandidateMessage(req, res) {
             await sendEmail({
                 to: settings.adminEmail,
                 subject: `New message from ${enquiry.name} about ${enquiry.topic}`,
-                text: `${enquiry.name} (${enquiry.email}) sent a message:\n\n${message}\n\nReply in the BrightPath admin inbox: ${new URL('/admin#enquiries', settings.frontendUrl)}\n\nConversation: ${conversationUrl}`
+                text: `${enquiry.name} (${enquiry.email}) sent a message:\n\n${message}\n\nReply in the Garvit admin inbox: ${new URL('/admin#enquiries', settings.frontendUrl)}\n\nConversation: ${conversationUrl}`
             });
             notificationSent = true;
         } catch (error) {
@@ -228,14 +228,14 @@ async function replyToEnquiry(req, res) {
             const conversationUrl = createConversationUrl(settings.frontendUrl, accessToken);
             await sendEmail({
                 to: enquiry.email,
-                subject: 'A new reply to your BrightPath enquiry',
-                text: `Hi ${enquiry.name},\n\nThe BrightPath team replied to your enquiry:\n\n${message}\n\nContinue the conversation using your private link:\n${conversationUrl}\n\nKeep this link private. Anyone with it can view and reply to this enquiry.`
+                subject: 'A new reply to your Garvit enquiry',
+                text: `Hi ${enquiry.name},\n\nThe Garvit team replied to your enquiry:\n\n${message}\n\nContinue the conversation using your private link:\n${conversationUrl}\n\nKeep this link private. Anyone with it can view and reply to this enquiry.`
             });
             notificationSent = true;
             enquiry.accessEmailSentAt = new Date();
             await enquiry.save();
         } catch (error) {
-            console.error('Could not email a BrightPath enquiry reply:', error);
+            console.error('Could not email a Garvit enquiry reply:', error);
         }
 
         return res.json({
@@ -275,8 +275,8 @@ async function sendAccessLink(req, res) {
         const conversationUrl = createConversationUrl(settings.frontendUrl, accessToken);
         await sendEmail({
             to: enquiry.email,
-            subject: 'Your BrightPath enquiry conversation link',
-            text: `Hi ${enquiry.name},\n\nUse this private link to view and reply to your BrightPath enquiry:\n${conversationUrl}\n\nKeep this link private. Anyone with it can view and reply to this enquiry.`
+            subject: 'Your Garvit enquiry conversation link',
+            text: `Hi ${enquiry.name},\n\nUse this private link to view and reply to your Garvit enquiry:\n${conversationUrl}\n\nKeep this link private. Anyone with it can view and reply to this enquiry.`
         });
         enquiry.accessEmailSentAt = new Date();
         await enquiry.save();

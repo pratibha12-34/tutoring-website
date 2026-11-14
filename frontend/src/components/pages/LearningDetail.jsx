@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { apiRequest } from '../api.js';
 import { useAuth } from '../auth-context.js';
+import Seo from '../Seo.jsx';
 import './LearningDetail.css';
 
 function getVideoPlayerSource(videoUrl) {
@@ -157,14 +158,37 @@ function LearningDetailContent({ id, type, user }) {
     ] : [];
     const itemName = item?.[itemNameField] || (isCourse ? 'Course' : 'Batch');
     const listingPath = isCourse ? '/allcourses' : '/allbatches';
+    const metaTitle = item
+        ? `${itemName} ${isCourse ? 'Course' : 'Tutoring Batch'} | Garvit`
+        : `${isCourse ? 'Tutoring Course' : 'Tutoring Batch'} | Garvit`;
+    const metaDescription = isCourse
+        ? item?.course_description || `Explore ${itemName} and its course details on Garvit.`
+        : `Explore ${itemName}, its teacher, schedule and live class details on Garvit.`;
+    const structuredData = isCourse && item ? {
+        '@context': 'https://schema.org',
+        '@type': 'Course',
+        name: itemName,
+        description: metaDescription,
+        provider: {
+            '@type': 'Organization',
+            name: 'Garvit'
+        }
+    } : undefined;
+    const canonicalPath = `/${isCourse ? 'courses' : 'batches'}/${encodeURIComponent(id)}`;
 
     if (isLoading) {
-        return <main className="learning-detail-page"><p>Loading {isCourse ? 'course' : 'batch'}…</p></main>;
+        return (
+            <main className="learning-detail-page">
+                <Seo title={metaTitle} description="Explore tutoring courses and batches on Garvit." canonicalPath={canonicalPath} />
+                <p>Loading {isCourse ? 'course' : 'batch'}…</p>
+            </main>
+        );
     }
 
     if (error || !item) {
         return (
             <main className="learning-detail-page">
+                <Seo title={metaTitle} description="Explore tutoring courses and batches on Garvit." canonicalPath={canonicalPath} noIndex />
                 <Link className="learning-detail-back" to={listingPath}>← Back to {isCourse ? 'courses' : 'batches'}</Link>
                 <p className="learning-detail-error" role="alert">{error || `Could not find this ${isCourse ? 'course' : 'batch'}.`}</p>
             </main>
@@ -173,6 +197,12 @@ function LearningDetailContent({ id, type, user }) {
 
     return (
         <main className="learning-detail-page">
+            <Seo
+                title={metaTitle}
+                description={metaDescription}
+                canonicalPath={canonicalPath}
+                structuredData={structuredData}
+            />
             <nav className="learning-detail-nav" aria-label={`${isCourse ? 'Course' : 'Batch'} navigation`}>
                 <Link className="learning-detail-back" to={listingPath}>← Back to {isCourse ? 'courses' : 'batches'}</Link>
                 <Link className="learning-detail-back" to="/">Home</Link>
@@ -182,7 +212,7 @@ function LearningDetailContent({ id, type, user }) {
                 {item[isCourse ? 'course_img' : 'batch_img'] && (
                     <img
                         src={item[isCourse ? 'course_img' : 'batch_img']}
-                        alt=""
+                        alt={`${itemName} ${isCourse ? 'course' : 'batch'}`}
                     />
                 )}
                 <div>

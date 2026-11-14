@@ -72,8 +72,8 @@ const EnquiryChat = () => {
             setConversation(result.enquiry);
             setMessage('');
             setStatus(result.notificationSent
-                ? 'Your message was sent to the BrightPath team.'
-                : 'Your message was saved, but the BrightPath team could not be notified by email.');
+                ? 'Your message was sent to the Garvit team.'
+                : 'Your message was saved, but the Garvit team could not be notified by email.');
         } catch (sendError) {
             setError(sendError instanceof Error ? sendError.message : 'Could not send your message.');
         } finally {
@@ -84,14 +84,14 @@ const EnquiryChat = () => {
     return (
         <main className="enquiry-chat-page">
             <header className="enquiry-chat-topbar">
-                <Link className="brand" to="/" aria-label="BrightPath home">
+                <Link className="brand" to="/" aria-label="Garvit home">
                     <span className="brand-mark"><img src="/assests/logo1.jpeg" alt="" /></span>
-                    <span>Bright<span className="brand-accent">Path</span></span>
+                    <span>Gar<span className="brand-accent">vit</span></span>
                 </Link>
                 <ThemeToggle />
             </header>
             <section className="enquiry-chat-card">
-                <p className="eyebrow">BRIGHTPATH ENQUIRY</p>
+                <p className="eyebrow">GARVIT ENQUIRY</p>
                 <h1>Your conversation</h1>
                 {isLoading ? <p className="enquiry-chat-muted">Loading your conversation…</p> : error && !conversation ? (
                     <p className="enquiry-chat-error" role="alert">{error}</p>
@@ -102,7 +102,7 @@ const EnquiryChat = () => {
                             <span>Topic: {conversation.topic}</span>
                         </div>
                         <div className="enquiry-chat-toolbar">
-                            <p>Messages between you and the BrightPath team.</p>
+                            <p>Messages between you and the Garvit team.</p>
                             <button type="button" onClick={() => loadConversation()} aria-label="Refresh conversation">
                                 <Autorenew /> Refresh
                             </button>
@@ -111,7 +111,7 @@ const EnquiryChat = () => {
                             {conversation.messages.map((entry) => (
                                 <article className={`enquiry-chat-message enquiry-chat-message--${entry.sender}`} key={entry._id || `${entry.sender}-${entry.createdAt}`}>
                                     <div className="enquiry-chat-message-meta">
-                                        <strong>{entry.sender === 'admin' ? 'BrightPath team' : 'You'}</strong>
+                                        <strong>{entry.sender === 'admin' ? 'Garvit team' : 'You'}</strong>
                                         <time dateTime={entry.createdAt}>{formatMessageTime(entry.createdAt)}</time>
                                     </div>
                                     <p>{entry.message}</p>

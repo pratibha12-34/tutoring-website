@@ -14,7 +14,7 @@ function readStoredUser() {
             return { username: user.username, role: user.role, token: user.token };
         }
     } catch (error) {
-        console.error('Could not read the saved BrightPath account:', error);
+        console.error('Could not read the saved Garvit account:', error);
     }
 
     window.localStorage.removeItem(AUTH_STORAGE_KEY);

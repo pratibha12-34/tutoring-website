@@ -130,7 +130,7 @@ const Register = () => {
     return(
         <div className="login-page register-page">
             <div className="auth-topbar">
-                <Link className="auth-brand" to="/"><span className="auth-brand-logo"><img src="/assests/logo1.jpeg" alt="" /></span>Bright<span>Path</span></Link>
+                <Link className="auth-brand" to="/"><span className="auth-brand-logo"><img src="/assests/logo1.jpeg" alt="" /></span>Gar<span>vit</span></Link>
                 <ThemeToggle />
             </div>
             <div className="auth-card">
@@ -138,7 +138,7 @@ const Register = () => {
                     <span className="auth-heading-icon register-heading-icon"><LockOpen /></span>
                     <p className="auth-eyebrow">YOUR NEXT CHAPTER</p>
                     <h1>Make a little room to grow.</h1>
-                    <p>Create your account and start learning with BrightPath.</p>
+                    <p>Create your account and start learning with Garvit.</p>
                 </header>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="register-name">Username

@@ -21,6 +21,7 @@ import { ThemeProvider } from './components/ThemeContext.jsx';
 import { AuthProvider } from './components/AuthContext.jsx';
 import { Navigate, Routes, Route } from 'react-router-dom';
 import { useAuth } from './components/auth-context.js';
+import Seo from './components/Seo.jsx';
 
 import './App.css';
 
@@ -33,6 +34,15 @@ function RoleRoute({ roles, children }) {
   return children;
 }
 
+function NoIndexPage({ title, children }) {
+  return (
+    <>
+      <Seo title={title} description="This Garvit page is for signed-in users." noIndex />
+      {children}
+    </>
+  );
+}
+
 function App() {
   return (
     <ThemeProvider>
@@ -40,19 +50,19 @@ function App() {
        <div>
        
         <Routes>
-          <Route path="/teacher_salary" element={<Teacher_sal/>}/>
+          <Route path="/teacher_salary" element={<NoIndexPage title="Teacher Salary | Garvit"><Teacher_sal/></NoIndexPage>}/>
           
           <Route path="/" element={<Home/>} />
-          <Route path="/admin" element={<RoleRoute roles={['admin']}><Admin/></RoleRoute>} />
-          <Route path="/admin/teachers" element={<RoleRoute roles={['admin']}><TeacherManagement/></RoleRoute>} />
-          <Route path="/teacher" element={<RoleRoute roles={['teacher']}><Teacher/></RoleRoute>} />
-          <Route path="/student" element={<RoleRoute roles={['student']}><Student/></RoleRoute>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/register" element={<Register/>} />
-          <Route path="/enquiry/chat/:token" element={<EnquiryChat/>} />
+          <Route path="/admin" element={<NoIndexPage title="Admin Dashboard | Garvit"><RoleRoute roles={['admin']}><Admin/></RoleRoute></NoIndexPage>} />
+          <Route path="/admin/teachers" element={<NoIndexPage title="Teacher Management | Garvit"><RoleRoute roles={['admin']}><TeacherManagement/></RoleRoute></NoIndexPage>} />
+          <Route path="/teacher" element={<NoIndexPage title="Teacher Dashboard | Garvit"><RoleRoute roles={['teacher']}><Teacher/></RoleRoute></NoIndexPage>} />
+          <Route path="/student" element={<NoIndexPage title="Student Dashboard | Garvit"><RoleRoute roles={['student']}><Student/></RoleRoute></NoIndexPage>} />
+          <Route path="/login" element={<NoIndexPage title="Sign In | Garvit"><Login/></NoIndexPage>} />
+          <Route path="/register" element={<NoIndexPage title="Create an Account | Garvit"><Register/></NoIndexPage>} />
+          <Route path="/enquiry/chat/:token" element={<NoIndexPage title="Private Enquiry | Garvit"><EnquiryChat/></NoIndexPage>} />
           <Route path="/enroll" element={<Navigate to="/allcourses" replace />} />
-          <Route path="/notes" element={<RoleRoute roles={['admin', 'student', 'teacher']}><Notes/></RoleRoute>} />
-          <Route path="/play-arena" element={<PlayArena/>} />
+          <Route path="/notes" element={<NoIndexPage title="Study Notes | Garvit"><RoleRoute roles={['admin', 'student', 'teacher']}><Notes/></RoleRoute></NoIndexPage>} />
+          <Route path="/play-arena" element={<><Seo title="Study Games and Quizzes | Garvit" description="Practice mathematics and science with short educational quizzes in the Garvit Play Arena." canonicalPath="/play-arena"/><PlayArena/></>} />
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<Contact/>} />
           {/* <Route path="/courseform" element={<Course_form/>} /> */}
@@ -68,7 +78,7 @@ function App() {
           <Route path="/batches/:id" element={<LearningDetail type="batch" />} />
           {/* <Route path ="/batches" element ={<Batches/>} /> */}
           {/* <Route path="/courses/:slug" element={<Course_form/>} /> */}
-
+          <Route path="*" element={<NoIndexPage title="Page Not Found | Garvit"><main><h1>Page not found</h1><a href="/">Return to Garvit</a></main></NoIndexPage>} />
 
         </Routes>
         <WelcomeAudio />

@@ -3,6 +3,7 @@ import { ArrowForward, AutoStories, EmailOutlined, Lightbulb, School } from '@mu
 import { Link } from 'react-router-dom';
 import Navbar from '../layouts/Navbar.jsx';
 import { API_BASE } from '../api.js';
+import Seo from '../Seo.jsx';
 import './InfoPages.css';
 
 const contactEmail = import.meta.env.VITE_CONTACT_EMAIL;
@@ -38,10 +39,15 @@ const Contact = () => {
 
     return (
       <main className="info-page contact-page">
+        <Seo
+            title="Contact Garvit | Tutoring Enquiries"
+            description="Contact Garvit about tutoring courses, batches, live classes or account help. Send a private enquiry to the team."
+            canonicalPath="/contact"
+        />
         <nav className="site-nav" aria-label="Main navigation">
-            <Link className="brand" to="/" aria-label="BrightPath home">
+            <Link className="brand" to="/" aria-label="Garvit home">
                 <span className="brand-mark"><img src="/assests/logo1.jpeg" alt="" /></span>
-                <span>Bright<span className="brand-accent">Path</span></span>
+                <span>Gar<span className="brand-accent">vit</span></span>
             </Link>
             <div className="site-nav-links"><Navbar /></div>
         </nav>
@@ -50,7 +56,7 @@ const Contact = () => {
             <div>
                 <p className="eyebrow"><span className="eyebrow-dot" /> WE’RE HERE TO HELP</p>
                 <h1>A question is a <span>great place to start.</span></h1>
-                <p>Whether you’re finding your way around BrightPath or choosing what to learn next, here are a few helpful places to begin.</p>
+                <p>Whether you’re finding your way around Garvit or choosing what to learn next, here are a few helpful places to begin.</p>
             </div>
             <div className="contact-hero-badge" aria-hidden="true">
                 <span><Lightbulb /></span>
@@ -73,7 +79,7 @@ const Contact = () => {
                 <span className="contact-option-icon contact-icon-peach"><AutoStories /></span>
                 <p className="course-number">ACCOUNT & ACCESS</p>
                 <h2>Need a hand with your account?</h2>
-                <p>Sign in to your learning space. If you can’t access your account, ask your BrightPath administrator for help.</p>
+                <p>Sign in to your learning space. If you can’t access your account, ask your Garvit administrator for help.</p>
                 <div className="contact-option-links">
                     <Link to="/login">Go to sign in <ArrowForward /></Link>
                     <Link to="/register">Create an account <ArrowForward /></Link>
@@ -102,7 +108,7 @@ const Contact = () => {
             <div className="contact-enquiry-heading">
                 <p className="eyebrow">SEND US AN ENQUIRY</p>
                 <h2>Tell us what’s on your mind.</h2>
-                <p>We’ll email you a private link where you can follow up and chat with the BrightPath team.</p>
+                <p>We’ll email you a private link where you can follow up and chat with the Garvit team.</p>
             </div>
             <form className="contact-enquiry-form" onSubmit={handleSubmit}>
                 <div className="contact-form-row">
@@ -141,7 +147,7 @@ const Contact = () => {
             <div className="contact-faq-list">
                 <details>
                     <summary>Where can I see the available courses?</summary>
-                    <p>Visit <Link to="/allcourses">All courses</Link> to explore what’s available on BrightPath.</p>
+                    <p>Visit <Link to="/allcourses">All courses</Link> to explore what’s available on Garvit.</p>
                 </details>
                 <details>
                     <summary>Where can I find study resources?</summary>
@@ -149,15 +155,15 @@ const Contact = () => {
                 </details>
                 <details>
                     <summary>What should I do if I forgot my password or PIN?</summary>
-                    <p>Use the recovery guidance on the <Link to="/login">sign-in page</Link>, or contact your BrightPath administrator for help.</p>
+                    <p>Use the recovery guidance on the <Link to="/login">sign-in page</Link>, or contact your Garvit administrator for help.</p>
                 </details>
             </div>
         </section>
 
         <footer className="site-footer">
-            <Link className="brand" to="/"><span className="brand-mark"><img src="/assests/logo1.jpeg" alt="" /></span><span>Bright<span className="brand-accent">Path</span></span></Link>
+            <Link className="brand" to="/"><span className="brand-mark"><img src="/assests/logo1.jpeg" alt="" /></span><span>Gar<span className="brand-accent">vit</span></span></Link>
             <p>Small steps. Bright futures.</p>
-            <Link to="/about">Get to know BrightPath <ArrowForward /></Link>
+            <Link to="/about">Get to know Garvit <ArrowForward /></Link>
         </footer>
       </main>
     );

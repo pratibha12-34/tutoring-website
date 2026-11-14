@@ -5,6 +5,7 @@ import QRCode from 'qrcode';
 import { useAuth } from '../auth-context.js';
 import { apiRequest } from '../api.js';
 import { MAX_VIDEO_BYTES, VIDEO_MIME_TYPES, uploadVideoFile } from '../fileUploads.js';
+import Seo from '../Seo.jsx';
 import './CatalogCards.css';
 import './Courses.css';
 
@@ -295,6 +296,12 @@ const Course_form = () =>{
     
     return(
         <main className="course-management-page">
+            <Seo
+                title={user?.role === 'admin' ? 'Manage Courses | Garvit' : 'Online Tutoring Courses | Garvit'}
+                description="Browse tutoring courses by subject and class. Explore course details and find a learning path that fits your goals."
+                canonicalPath="/allcourses"
+                noIndex={user?.role === 'admin'}
+            />
             <nav className="course-management-nav" aria-label="Course page navigation">
                 <Link to={user?.role === 'admin' ? '/admin' : user?.role === 'student' ? '/student' : '/'}>
                     Back to {user?.role === 'admin' ? 'admin panel' : user?.role === 'student' ? 'student panel' : 'home'}
@@ -447,7 +454,7 @@ const Course_form = () =>{
                     <article className="catalog-card" key={item._id || item.course_id}>
                         <Link className="catalog-card-image-link" to={`/courses/${encodeURIComponent(item._id)}`} aria-label={`View ${item.course_name}`}>
                             {item.course_img
-                                ? <img className="catalog-card-image" src={item.course_img} alt="" />
+                                ? <img className="catalog-card-image" src={item.course_img} alt={`${item.course_name} course`} />
                                 : <div className="catalog-card-image-placeholder" aria-hidden="true"><AutoStories /></div>}
                         </Link>
                         <div className="catalog-card-content">

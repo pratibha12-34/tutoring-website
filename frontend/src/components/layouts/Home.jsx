@@ -11,10 +11,22 @@ import {
     Videocam,
 } from '@mui/icons-material';
 import Navbar from './Navbar.jsx';
+import Seo from '../Seo.jsx';
 
 const Home = () => {
     return(
         <main className="home-page">
+            <Seo
+                title="Garvit | Online Tutoring, Live Classes & Study Resources"
+                description="Explore tutoring courses, live classes and study resources with Garvit. Learn with teachers and study at your own pace."
+                canonicalPath="/"
+                structuredData={{
+                    '@context': 'https://schema.org',
+                    '@type': 'EducationalOrganization',
+                    name: 'Garvit',
+                    description: 'Tutoring courses, live classes and study resources for learners.'
+                }}
+            />
             <nav className="site-nav" aria-label="Main navigation">
                 <span className="brand-mark"><img src="/assests/logo1.jpeg" alt="" /></span>            
                 
@@ -35,7 +47,7 @@ const Home = () => {
                     </div>
                     <div className="learner-count">
                         <div className="avatar-stack" aria-hidden="true"><span>R</span><span>A</span><span>M</span><span>+</span></div>
-                        <p><b>12,000+ learners</b><br />are growing with BrightPath</p>
+                        <p><b>12,000+ learners</b><br />are growing with Garvit</p>
                     </div>
                 </div>
                 <div className="hero-art" aria-label="Learning illustration">
@@ -106,7 +118,7 @@ const Home = () => {
                 </div>
                 <Link className="banner-button" to="/register">Find your start <ArrowForward /></Link>
             </section>
-            <footer className="site-footer"><Link className="brand" to="/"><span className="brand-mark"><img src="/assests/logo1.jpeg" alt="" /></span><span>Bright<span className="brand-accent">Path</span></span></Link><p>Small steps. Bright futures.</p><Link to="/login">Your learning space <ArrowForward /></Link></footer>
+            <footer className="site-footer"><Link className="brand" to="/"><span className="brand-mark"><img src="/assests/logo1.jpeg" alt="" /></span><span>Gar<span className="brand-accent">vit</span></span></Link><p>Small steps. Bright futures.</p><Link to="/login">Your learning space <ArrowForward /></Link></footer>
         </main>
     )
 }

@@ -1,4 +1,4 @@
-# BrightPath enquiry conversations
+# Garvit enquiry conversations
 
 The public Contact page accepts enquiries. Enquiries and chat messages are stored in MongoDB. Candidates receive a private conversation link by email; administrators can review and reply from the Enquiries section of the admin dashboard. Email notifications are sent to the candidate for administrator replies and to the configured administrator for new candidate messages.
 
@@ -13,7 +13,7 @@ Configure these backend environment variables to enable email delivery:
 | `ENQUIRY_SMTP_PASSWORD` | SMTP account password or provider app password |
 | `ENQUIRY_EMAIL_FROM` | Verified sender address |
 | `ENQUIRY_ADMIN_EMAIL` | Address that receives new-enquiry and candidate-reply notifications |
-| `FRONTEND_URL` | Public frontend origin, such as `https://brightpath.example` |
+| `FRONTEND_URL` | Public frontend origin, such as `https://garvit.example` |
 | `JWT_SECRET` | Existing authentication secret; also used to encrypt private conversation tokens at rest |
 
 Never commit SMTP credentials or production secrets. Keep `JWT_SECRET` stable while active enquiry links exist; changing it makes their encrypted access tokens unreadable. Each private link is a bearer credential: candidates should not share it. A private link can be resent from the admin inbox.

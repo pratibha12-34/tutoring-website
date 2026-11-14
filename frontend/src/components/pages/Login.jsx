@@ -65,7 +65,7 @@ const Login = () => {
     return(
         <div className="login-page">
             <div className="auth-topbar">
-                <Link className="auth-brand" to="/"><span className="auth-brand-logo"><img src="/assests/logo1.jpeg" alt="" /></span>Bright<span>Path</span></Link>
+                <Link className="auth-brand" to="/"><span className="auth-brand-logo"><img src="/assests/logo1.jpeg" alt="" /></span>Gar<span>vit</span></Link>
                 <ThemeToggle />
             </div>
             <div className="auth-card">
@@ -112,7 +112,7 @@ const Login = () => {
 
                 {error && <p role="alert"> {error} </p>}
 
-                <p className="auth-switch">New to BrightPath? <Link to="/register">Create an account <span aria-hidden="true">→</span></Link></p>
+                <p className="auth-switch">New to Garvit? <Link to="/register">Create an account <span aria-hidden="true">→</span></Link></p>
             </div>
             <p className="auth-footer">A brighter way to learn, one step at a time.</p>
         </div>
