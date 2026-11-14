@@ -1,6 +1,6 @@
 const express = require('express');
 const { authenticate, requireRole } = require('../middleware/auth');
-const { getNotes, createNote, updateNote, deleteNote } = require('../controllers/noteController');
+const { getNotes, getCourseNotes, createNote, updateNote, deleteNote } = require('../controllers/noteController');
 const {
     createNoteAttachmentUploadUrl,
     saveNoteAttachment,
@@ -9,6 +9,7 @@ const {
 
 const router = express.Router();
 
+router.get('/course/:courseId', authenticate, getCourseNotes);
 router.get('/', authenticate, getNotes);
 router.post('/', authenticate, requireRole('admin'), createNote);
 router.post('/:id/attachments/upload-url', authenticate, requireRole('admin'), createNoteAttachmentUploadUrl);

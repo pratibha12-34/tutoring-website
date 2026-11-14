@@ -62,7 +62,7 @@ The admin forms accept MP4, WebM, OGG, MOV, and M4V uploads up to 1 GB per file.
 
 ## Study note attachments
 
-Administrators can upload multiple attachments to each study note: PDF, DOC/DOCX, RTF, PPT/PPTX/ODP, XLS/XLSX/ODS, ODT, TXT, Markdown, CSV, JPEG, PNG, WebP, and GIF files up to 50 MB each. Attachments are stored privately in the same R2 bucket as course and batch videos. The database stores file metadata and object keys; authorized note readers receive short-lived download URLs. The R2 credentials and bucket CORS policy described above are also required for note uploads and downloads. Deleting a note or its course removes its stored attachments.
+Administrators can upload multiple attachments to each study note: PDF, DOC/DOCX, RTF, PPT/PPTX/ODP, XLS/XLSX/ODS, ODT, TXT, Markdown, CSV, JPEG, PNG, WebP, and GIF files up to 50 MB each. Attachments are stored privately in the same R2 bucket as course and batch videos. The database stores file metadata and object keys; authorized note readers receive short-lived download URLs. Students can open course-specific notes from an enrolled course’s detail page; the API verifies enrollment before returning those notes. The R2 credentials and bucket CORS policy described above are also required for note uploads and downloads. Deleting a note or its course removes its stored attachments.
 
 ## Teacher salary payouts
 

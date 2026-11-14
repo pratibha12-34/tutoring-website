@@ -248,11 +248,16 @@ const Student = () => {
                         {loading ? <p>Loading your courses…</p> : enrollments.courses.length ? (
                             <div className="student-learning-list">
                                 {enrollments.courses.map((course) => (
-                                    <article className="student-learning-card" key={course._id}>
+                                    <Link
+                                        className="student-learning-card student-learning-card-link"
+                                        key={course._id}
+                                        to={`/courses/${encodeURIComponent(course._id)}`}
+                                    >
                                         <p>COURSE {course.course_id}</p>
                                         <h3>{course.course_name}</h3>
                                         <span>{course.course_duration}</span>
-                                    </article>
+                                        <span className="student-course-open">Open course and notes</span>
+                                    </Link>
                                 ))}
                             </div>
                         ) : <p className="student-empty">You haven’t enrolled in a course yet. Browse courses to get started.</p>}

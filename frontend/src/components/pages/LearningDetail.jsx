@@ -112,6 +112,9 @@ function LearningDetailContent({ id, type, user }) {
     const videoFilesField = isCourse ? 'course_video_files' : 'batch_video_files';
     const [item, setItem] = useState(null);
     const [content, setContent] = useState(null);
+    const [courseNotes, setCourseNotes] = useState([]);
+    const [notesError, setNotesError] = useState('');
+    const [isLoadingNotes, setIsLoadingNotes] = useState(Boolean(isCourse && user));
     const [error, setError] = useState('');
     const [contentError, setContentError] = useState(
         user ? '' : `Sign in and enroll in this ${isCourse ? 'course' : 'batch'} to access its videos.`
@@ -144,6 +147,19 @@ function LearningDetailContent({ id, type, user }) {
                 })
                 .finally(() => {
                     if (isMounted) setIsLoadingContent(false);
+                });
+        }
+
+        if (user && isCourse) {
+            apiRequest(`/notes/course/${encodeURIComponent(id)}`)
+                .then((result) => {
+                    if (isMounted) setCourseNotes(result);
+                })
+                .catch((requestError) => {
+                    if (isMounted) setNotesError(requestError.message);
+                })
+                .finally(() => {
+                    if (isMounted) setIsLoadingNotes(false);
                 });
         }
 
@@ -262,6 +278,62 @@ function LearningDetailContent({ id, type, user }) {
                     <p className="learning-detail-empty">No videos have been added to this {isCourse ? 'course' : 'batch'} yet.</p>
                 )}
             </section>
+
+            {isCourse && (
+                <section className="learning-detail-content learning-detail-notes" aria-labelledby="course-notes-heading">
+                    <div className="learning-detail-section-heading">
+                        <p className="learning-detail-eyebrow">COURSE RESOURCES</p>
+                        <h2 id="course-notes-heading">Study notes</h2>
+                    </div>
+                    {!user ? (
+                        <div className="learning-detail-access-message">
+                            <p>Sign in and enroll in this course to access its study notes.</p>
+                            <Link to="/login">Sign in</Link>
+                        </div>
+                    ) : isLoadingNotes ? (
+                        <p className="learning-detail-empty">Loading course notes…</p>
+                    ) : notesError ? (
+                        <div className="learning-detail-access-message">
+                            <p role="alert">{notesError}</p>
+                            {user.role === 'student' && <Link to={listingPath}>Browse courses</Link>}
+                        </div>
+                    ) : courseNotes.length ? (
+                        <div className="learning-course-note-list">
+                            {courseNotes.map((note) => (
+                                <article className="learning-course-note" key={note._id}>
+                                    <h3>{note.chapter}</h3>
+                                    <p className="learning-course-note-summary">{note.summary}</p>
+                                    <p className="learning-course-note-key-point"><strong>Key point:</strong> {note.keyPoint}</p>
+                                    {note.content && (
+                                        <details>
+                                            <summary>Read full notes</summary>
+                                            <p>{note.content}</p>
+                                        </details>
+                                    )}
+                                    {note.attachmentUrl && (
+                                        <a href={note.attachmentUrl} target="_blank" rel="noopener noreferrer">
+                                            Open study resource
+                                        </a>
+                                    )}
+                                    {note.attachmentFiles?.length > 0 && (
+                                        <ul aria-label={`${note.chapter} attachments`}>
+                                            {note.attachmentFiles.map((attachment) => (
+                                                <li key={attachment._id}>
+                                                    <a href={attachment.url} target="_blank" rel="noopener noreferrer" download>
+                                                        {attachment.title}
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </article>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className="learning-detail-empty">No study notes have been added to this course yet.</p>
+                    )}
+                </section>
+            )}
 
             {!isCourse && !contentError && !isLoadingContent && (
                 <section className="learning-detail-live-class" aria-labelledby="live-class-heading">

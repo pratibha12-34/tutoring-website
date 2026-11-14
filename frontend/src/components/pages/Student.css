@@ -54,6 +54,29 @@
   font-size: 1rem;
 }
 
+.student-learning-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.student-learning-card-link:hover {
+  border-color: #b9a9ff;
+  transform: translateY(-1px);
+}
+
+.student-learning-card-link:focus-visible {
+  outline: 3px solid #684ce0;
+  outline-offset: 3px;
+}
+
+.student-learning-card .student-course-open {
+  color: #684ce0;
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
 .student-learning-card > span,
 .student-empty,
 .student-data-error {
@@ -137,6 +160,10 @@
 
 [data-theme="dark"] .student-learning-card h3 {
   color: #eeedf5;
+}
+
+[data-theme="dark"] .student-learning-card .student-course-open {
+  color: #c1b4ff;
 }
 
 [data-theme="dark"] .student-learning-card > span,

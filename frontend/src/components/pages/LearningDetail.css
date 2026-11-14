@@ -154,6 +154,59 @@
     font-weight: 700;
 }
 
+.learning-course-note-list {
+    display: grid;
+    gap: 14px;
+}
+
+.learning-course-note {
+    padding: 18px;
+    border: 1px solid #e8e5f1;
+    border-radius: 12px;
+    background: #faf9fd;
+}
+
+.learning-course-note h3 {
+    margin: 0;
+    color: #29293d;
+    font-size: 1rem;
+}
+
+.learning-course-note p {
+    margin: 10px 0 0;
+    color: #69677a;
+    line-height: 1.65;
+    white-space: pre-wrap;
+}
+
+.learning-course-note .learning-course-note-key-point {
+    padding: 10px 12px;
+    border-left: 3px solid #8a73eb;
+    background: #f0edff;
+}
+
+.learning-course-note details {
+    margin-top: 12px;
+}
+
+.learning-course-note summary {
+    color: #684ce0;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.learning-course-note a {
+    color: #684ce0;
+    font-weight: 700;
+}
+
+.learning-course-note ul {
+    display: grid;
+    gap: 8px;
+    margin: 12px 0 0;
+    padding-left: 20px;
+}
+
 .learning-detail-access-message,
 .learning-detail-live-class {
     display: flex;
@@ -203,7 +256,8 @@
 [data-theme="dark"] .learning-detail-description h2,
 [data-theme="dark"] .learning-detail-section-heading h2,
 [data-theme="dark"] .learning-detail-live-class h2,
-[data-theme="dark"] .learning-video h3 {
+[data-theme="dark"] .learning-video h3,
+[data-theme="dark"] .learning-course-note h3 {
     color: #eeedf5;
 }
 
@@ -216,7 +270,8 @@
 [data-theme="dark"] .learning-detail-description > p,
 [data-theme="dark"] .learning-detail-access-message p,
 [data-theme="dark"] .learning-detail-empty,
-[data-theme="dark"] .learning-detail-live-class p {
+[data-theme="dark"] .learning-detail-live-class p,
+[data-theme="dark"] .learning-course-note p {
     color: #d0cddd;
 }
 
@@ -230,6 +285,21 @@
 [data-theme="dark"] .learning-video {
     border-color: #393646;
     background: #2a2836;
+}
+
+[data-theme="dark"] .learning-course-note {
+    border-color: #393646;
+    background: #2a2836;
+}
+
+[data-theme="dark"] .learning-course-note .learning-course-note-key-point {
+    border-left-color: #a898ff;
+    background: #373149;
+}
+
+[data-theme="dark"] .learning-course-note summary,
+[data-theme="dark"] .learning-course-note a {
+    color: #c1b4ff;
 }
 
 [data-theme="dark"] .learning-video-uploaded {

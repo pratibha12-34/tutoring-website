@@ -4,6 +4,14 @@ const Note = require('../models/note');
 const Course = require('../models/courses');
 const CoursePayment = require('../models/coursePayment');
 const { getDownloadUrls, deleteObjects } = require('../services/r2Storage');
+const { hasApprovedEnrollment } = require('../utils/learningLinks');
+
+async function addAttachmentUrls(notes) {
+    return Promise.all(notes.map(async (note) => ({
+        ...note,
+        attachmentFiles: await getDownloadUrls(note.attachmentFiles || [])
+    })));
+}
 
 function readNoteInput(body) {
     const courseId = typeof body?.courseId === 'string' ? body.courseId.trim() : '';
@@ -38,14 +46,33 @@ async function getNotes(req, res) {
             query = { courseId: { $in: accessibleCourseIds } };
         }
         const notes = await Note.find(query).populate('courseId', 'course_name course_id').sort({ createdAt: -1 }).lean();
-        const notesWithAttachmentUrls = await Promise.all(notes.map(async (note) => ({
-            ...note,
-            attachmentFiles: await getDownloadUrls(note.attachmentFiles || [])
-        })));
-        return res.json(notesWithAttachmentUrls);
+        return res.json(await addAttachmentUrls(notes));
     } catch (error) {
         console.error('Could not load study notes:', error);
         return res.status(500).json({ error: 'Could not load study notes.' });
+    }
+}
+
+async function getCourseNotes(req, res) {
+    const { courseId } = req.params;
+    if (!mongoose.isValidObjectId(courseId)) return res.status(400).json({ error: 'Invalid course ID.' });
+
+    try {
+        const courseExists = await Course.exists({ _id: courseId });
+        if (!courseExists) return res.status(404).json({ error: 'Course not found.' });
+
+        if (req.auth.role === 'student' && !await hasApprovedEnrollment(req.auth.userId, 'course', courseId)) {
+            return res.status(403).json({ error: 'Enroll in this course to access its notes.' });
+        }
+
+        const notes = await Note.find({ courseId })
+            .populate('courseId', 'course_name course_id')
+            .sort({ createdAt: -1 })
+            .lean();
+        return res.json(await addAttachmentUrls(notes));
+    } catch (error) {
+        console.error('Could not load course study notes:', error);
+        return res.status(500).json({ error: 'Could not load this course’s study notes.' });
     }
 }
 
@@ -98,4 +125,4 @@ async function deleteNote(req, res) {
     }
 }
 
-module.exports = { getNotes, createNote, updateNote, deleteNote };
+module.exports = { getNotes, getCourseNotes, createNote, updateNote, deleteNote };
