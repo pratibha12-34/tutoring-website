@@ -20,9 +20,58 @@
     <link rel="canonical" href="" data-seo="canonical" />
     <link rel="icon" type="image/jpeg" href="/assests/logo1.jpeg" />
     <title>Garvit | Online Tutoring, Live Classes & Study Resources</title>
+    <style>
+      .app-route-loading {
+        min-height: 100vh;
+        display: grid;
+        place-content: center;
+        justify-items: center;
+        gap: 12px;
+        padding: 24px;
+        background: #fdfcff;
+        color: #684ce0;
+        font: 600 0.95rem Inter, system-ui, sans-serif;
+        text-align: center;
+      }
+
+      .app-route-loading-spinner {
+        width: 34px;
+        height: 34px;
+        border: 3px solid #e8e5f1;
+        border-top-color: currentColor;
+        border-radius: 50%;
+        animation: app-route-spin 800ms linear infinite;
+      }
+
+      [data-theme="dark"] .app-route-loading {
+        background: #171620;
+        color: #c1b4ff;
+      }
+
+      @keyframes app-route-spin {
+        to { transform: rotate(360deg); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .app-route-loading-spinner { animation: none; }
+      }
+    </style>
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem('brightpath-theme') === 'dark' ? 'dark' : 'light';
+      } catch (error) {
+        console.error('Could not restore the saved theme before startup.', error);
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <main class="app-route-loading" role="status" aria-live="polite">
+        <span class="app-route-loading-spinner" aria-hidden="true"></span>
+        <p>Loading Garvit…</p>
+      </main>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

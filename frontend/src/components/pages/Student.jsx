@@ -9,7 +9,12 @@ import './Dashboard.css';
 import './Student.css';
 
 const Student = () => {
-    const [enrollments, setEnrollments] = useState({ courses: [], batches: [] });
+    const [enrollments, setEnrollments] = useState({
+        courses: [],
+        batches: [],
+        pendingCourses: [],
+        pendingBatches: []
+    });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
     const [tuitionRequest, setTuitionRequest] = useState(null);
@@ -148,6 +153,7 @@ const Student = () => {
 
     async function refreshTuitionAccess() {
         setTuitionPaymentError('');
+        setError('');
         setIsRefreshingTuitionAccess(true);
         try {
             const [request, result] = await Promise.all([
@@ -157,6 +163,7 @@ const Student = () => {
             setTuitionRequest(request);
             setEnrollments(result);
         } catch (requestError) {
+            setError(requestError.message);
             setTuitionPaymentError(requestError.message);
         } finally {
             setIsRefreshingTuitionAccess(false);
@@ -306,7 +313,7 @@ const Student = () => {
                                 <div className="student-learning-list">
                                     {tuitionRequest.courses.map((course) => {
                                         const isEnrolled = enrollments.courses.some((enrolledCourse) => enrolledCourse._id === course._id);
-                                        const pendingPayment = enrollments.pendingCourses.find((payment) => String(payment.itemId) === course._id);
+                                        const pendingPayment = (enrollments.pendingCourses ?? []).find((payment) => String(payment.itemId) === course._id);
                                         const fee = Number(course.course_fee ?? 0);
                                         const isSelectedForPayment = selectedTuitionCourse?._id === course._id;
                                         return (
@@ -314,7 +321,13 @@ const Student = () => {
                                                 <p>COURSE {course.course_id}</p>
                                                 <h3>{course.course_name}</h3>
                                                 <span>{course.course_class || tuitionRequest.tuitionClass}{course.course_subject ? ` · ${course.course_subject}` : ''}</span>
-                                                {tuitionRequest.status !== 'approved' ? (
+                                                {loading || error ? (
+                                                    <p className="student-tuition-course-status">
+                                                        {loading
+                                                            ? 'Checking enrollment and payment status…'
+                                                            : 'Could not verify enrollment and payment status. Refresh before continuing.'}
+                                                    </p>
+                                                ) : tuitionRequest.status !== 'approved' ? (
                                                     <p className="student-tuition-course-status">
                                                         {tuitionRequest.status === 'rejected'
                                                             ? 'Tuition request rejected; enrollment is unavailable.'

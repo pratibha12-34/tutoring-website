@@ -33,7 +33,10 @@ export async function apiRequest(path, options = {}) {
             window.localStorage.removeItem(AUTH_STORAGE_KEY);
             window.dispatchEvent(new CustomEvent('brightpath-auth-expired'));
         }
-        throw new Error(result?.error || `Request failed (HTTP ${response.status}).`);
+        const message = result?.error || (response.status === 429
+            ? 'The server is receiving too many requests. Please wait a moment and try again.'
+            : `Request failed (HTTP ${response.status}).`);
+        throw new Error(message);
     }
     if (!result && response.status !== 204) {
         throw new Error('The server returned an unexpected response.');

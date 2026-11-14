@@ -32,9 +32,8 @@ function getGreeting(pathname) {
 const WelcomeAudio = () => {
     const { pathname } = useLocation();
     const [enabled, setEnabled] = useState(isAudioEnabled);
-    const [audioBlocked, setAudioBlocked] = useState(false);
+    const [audioBlocked, setAudioBlocked] = useState(isAudioEnabled);
     const audioRef = useRef(null);
-    const lastGreetingPathRef = useRef('');
     const isWelcomePage = pathname === '/' || pathname === '/admin';
 
     const stopAudio = useCallback(() => {
@@ -167,19 +166,11 @@ const WelcomeAudio = () => {
     }, [pathname, startAmbientMusic]);
 
     useEffect(() => {
-        if (!isWelcomePage || !enabled) {
-            lastGreetingPathRef.current = '';
-            if (!isWelcomePage) stopAudio();
-            return undefined;
-        }
-        if (lastGreetingPathRef.current === pathname) return undefined;
-        lastGreetingPathRef.current = pathname;
-
-        const timerId = window.setTimeout(() => {
-            playGreeting();
-        }, 100);
-        return () => window.clearTimeout(timerId);
-    }, [enabled, pathname, isWelcomePage, playGreeting, stopAudio]);
+        if (isWelcomePage) return undefined;
+        stopAudio();
+        if (enabled) window.setTimeout(() => setAudioBlocked(true), 0);
+        return undefined;
+    }, [enabled, isWelcomePage, stopAudio]);
 
     useEffect(() => () => stopAudio(), [stopAudio]);
 
@@ -197,7 +188,6 @@ const WelcomeAudio = () => {
     function toggleAudio() {
         if (enabled) {
             if (audioBlocked) {
-                lastGreetingPathRef.current = pathname;
                 playGreeting();
                 return;
             }
@@ -210,7 +200,6 @@ const WelcomeAudio = () => {
         } catch {
             setAudioBlocked(true);
         }
-        lastGreetingPathRef.current = pathname;
         setEnabled(true);
         playGreeting();
     }
